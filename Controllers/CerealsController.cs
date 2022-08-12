@@ -32,10 +32,9 @@ namespace CerealREST.Controllers
 
         // GET api/<CerealsController>/5
         [HttpGet]
-        [Route("{Id}")]
+        [Route("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)] // http response statuscode
         [ProducesResponseType(StatusCodes.Status404NotFound)] // http response statuscode
-        //public Cereal GetById(int id)
         public IActionResult GetById(int id)
         {
             ManageCereal mc = new ManageCereal();
@@ -44,7 +43,8 @@ namespace CerealREST.Controllers
                 return Ok(mc.GetById(id));
             }
             return NotFound($"Cereal id {id} not found, meaning the object doesn't exist.");
-            
+
+
             //try
             //{
             //    return Ok(mc.GetById(id));
@@ -54,6 +54,15 @@ namespace CerealREST.Controllers
             //    return NotFound(knfe.Message);
             //}
         }
+
+        //[HttpGet]
+        //public FileContentResult show()
+        //{
+        //    // get strings from db
+        //    string base64image = "https://www.innit.com/public/products/images/00043000180327-vnixRi8UOOMAoo4-en-US-0_s500.jpg";
+        //    byte[] Picture = Convert.FromBase64String(base64image);
+        //    return File(Picture, "image/png");
+        //}
 
         // GET api/<CerealsController>/calories/120
         [HttpGet]
@@ -99,7 +108,7 @@ namespace CerealREST.Controllers
         //    }
         //    else
         //    {
-        //        return NotFound("Wrong password or username");
+        //        return Unauthoized("Wrong password or username");
         //    }
         //}
 
@@ -109,8 +118,8 @@ namespace CerealREST.Controllers
         public IActionResult Post([FromBody] Cereal value)
         {
             ManageCereal mc = new ManageCereal();
-            mc.Add(value);
             
+            mc.Add(value);
             return Ok(value);
             
         }

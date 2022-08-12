@@ -7,7 +7,7 @@ namespace CerealREST.DBUtil
     {
         private const String connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=CerealDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        private const String Get_All = "Select * From Cereal";
+        private const String Get_All = "Select * From Cereal2";
 
         public IEnumerable<Cereal> Get()
         {
@@ -28,7 +28,7 @@ namespace CerealREST.DBUtil
             return cereals;
         }
 
-        private const String Get_By_Id = "Select * from Cereal where Id = @Id";
+        private const String Get_By_Id = "Select * from Cereal2 where Id = @Id";
 
         public Cereal GetById(int id)
         {
@@ -49,7 +49,7 @@ namespace CerealREST.DBUtil
             return c;
         }
 
-        private const String Get_By_Calories = "Select * from Cereal where Calories = @Calories";
+        private const String Get_By_Calories = "Select * from Cereal2 where Calories = @Calories";
 
         public IEnumerable<Cereal> GetByCalories(int calories)
         {
@@ -74,7 +74,7 @@ namespace CerealREST.DBUtil
             return cereals;
         }
 
-        private const String Get_By_Type = "Select * from Cereal where Type IN (@Type)";
+        private const String Get_By_Type = "Select * from Cereal2 where Type IN (@Type)";
 
         public IEnumerable<Cereal> GetByType(string type)
         {
@@ -99,7 +99,7 @@ namespace CerealREST.DBUtil
             return cereals;
         }
 
-        private const String Sugars_And_Fat = "Select* from Cereal where Sugars <= @Sugars AND Fat <= @Fat";
+        private const String Sugars_And_Fat = "Select * from Cereal2 where Sugars <= @Sugars AND Fat <= @Fat";
 
         public IEnumerable<Cereal> GetBySugarsAndFat(int sugars, int fat)
         {
@@ -127,7 +127,7 @@ namespace CerealREST.DBUtil
 
         }
 
-        private const String INSERT = "insert into Cereal(Name, Mfr, Type, Calories, Protein, Fat, Sodium, Fiber, Carbo, Sugars, Potass, Vitamins, Shelf, Weight, Cups, Rating, Image) Values(@Name, @Mfr, @Type, @Calories, @Protein, @Fat, @Sodium, @Fiber, @Carbo, @Sugars, @Potass, @Vitamins, @Shelf, @Weight, @Cups, @Rating, @Image)";
+        private const String INSERT = "insert into Cereal2(Name, Mfr, Type, Calories, Protein, Fat, Sodium, Fiber, Carbo, Sugars, Potass, Vitamins, Shelf, Weight, Cups, Rating, Image) Values(@Name, @Mfr, @Type, @Calories, @Protein, @Fat, @Sodium, @Fiber, @Carbo, @Sugars, @Potass, @Vitamins, @Shelf, @Weight, @Cups, @Rating, @Image)";
 
         public void Add(Cereal value)
         {
@@ -157,7 +157,7 @@ namespace CerealREST.DBUtil
             }
         }
 
-        private const String DELETE_CEREAL = "DELETE Cereal WHERE Id = @Id";
+        private const String DELETE_CEREAL = "DELETE Cereal2 WHERE Id = @Id";
 
         public Cereal DeleteCereal(int id)
         {
@@ -195,8 +195,8 @@ namespace CerealREST.DBUtil
             cereal.Shelf = reader.GetInt32(13);
             cereal.Weight = reader.GetDouble(14);
             cereal.Cups = reader.GetDouble(15);
-            cereal.Rating = reader.GetDouble(16);
-            cereal.Image = reader.GetString(17);
+            //cereal.Rating = reader.GetDouble(16);
+            //cereal.Image = reader.GetString(17);
 
             return cereal;
         }
