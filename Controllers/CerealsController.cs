@@ -64,26 +64,42 @@ namespace CerealREST.Controllers
         //    return File(Picture, "image/png");
         //}
 
-        // GET api/<CerealsController>/calories/120
+        //// GET api/<CerealsController>/calories/120
+        //[HttpGet]
+        //[Route("calories/{calories}")]
+        //public IEnumerable<Cereal> GetByCalories(int calories)
+        //{
+        //    //List<Cereal> lCereals = Cereals.FindAll(c => c.Calories == calories);
+        //    //return lCereals;
+        //    ManageCereal mc = new ManageCereal();
+        //    return mc.GetByCalories(calories);
+        //}
+
+        //// GET api/<CerealsController>/type/D
+        //[HttpGet]
+        //[Route("type/{type}")]
+        //public IEnumerable<Cereal> GetByType(string type)
+        //{
+        //    //List<Cereal> lCereals = Cereals.FindAll(c => c.Type == type);
+        //    //return lCereals;
+        //    ManageCereal mc = new ManageCereal();
+        //    return mc.GetByType(type);
+        //}
+
         [HttpGet]
-        [Route("calories/{calories}")]
-        public IEnumerable<Cereal> GetByCalories(int calories)
+        [Route("{category}/{cate}")]
+        public IEnumerable<Cereal> GetByCategory(string category, string cate)
         {
-            //List<Cereal> lCereals = Cereals.FindAll(c => c.Calories == calories);
-            //return lCereals;
             ManageCereal mc = new ManageCereal();
-            return mc.GetByCalories(calories);
+            return mc.GetByCategory(category, cate);
         }
 
-        // GET api/<CerealsController>/type/D
         [HttpGet]
-        [Route("type/{type}")]
-        public IEnumerable<Cereal> GetByType(string type)
+        [Route("{category2}/{sort}/{cate2}")]
+        public IEnumerable<Cereal> GetBySortingCategory(string category2, string sort, int cate2)
         {
-            //List<Cereal> lCereals = Cereals.FindAll(c => c.Type == type);
-            //return lCereals;
             ManageCereal mc = new ManageCereal();
-            return mc.GetByType(type);
+            return mc.GetBySortingCategory(category2, sort, cate2);
         }
 
         [HttpGet]
