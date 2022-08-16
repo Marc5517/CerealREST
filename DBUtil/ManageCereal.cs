@@ -226,7 +226,7 @@ namespace CerealREST.DBUtil
         
         private const String Get_By_Exact_Protein = "Select * from Cereal2 Where Protein = @cate";
         private const String Get_By_Low_Or_Equal_Protein = "Select * from Cereal2 Where Protein >= @cate";
-        private const String Get_By_High_Or_Equal_Protein = "Select * from Cereal2 Where protein <= @cate";
+        private const String Get_By_High_Or_Equal_Protein = "Select * from Cereal2 Where Protein <= @cate";
         private const String Get_By_Low_Protein = "Select * from Cereal2 Where Protein > @cate";
         private const String Get_By_High_Protein = "Select * from Cereal2 Where Protein < @cate";
         private const String Get_By_Not_Equal_Protein = "Select * from Cereal2 Where Protein != @cate";
@@ -758,9 +758,26 @@ namespace CerealREST.DBUtil
             return cere;
         }
 
+        //public static double? SafeGetDouble(this SqlDataReader reader, int colIndex)
+        //{
+        //    if (!reader.IsDBNull(colIndex))
+        //    {
+        //        return reader.GetDouble(colIndex);
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
+
         private Cereal ReadNextElement(SqlDataReader reader)
         {
             Cereal cereal = new Cereal();
+
+            int size = 1024 * 1024;
+            byte[] buffer = new byte[size];
+            int readBytes = 0;
+            int index = 0;
 
             cereal.Id = reader.GetInt32(0);
             cereal.Name = reader.GetString(1);
@@ -778,10 +795,13 @@ namespace CerealREST.DBUtil
             cereal.Shelf = reader.GetInt32(13);
             cereal.Weight = reader.GetDouble(14);
             cereal.Cups = reader.GetDouble(15);
-            //cereal.Rating = reader.GetDouble(16);
-            //cereal.Image = reader.GetString(17);
+            cereal.Rating = reader.SafeGetDouble(16);
+            //cereal.Image = (byte[])Convert.FromBase64String(reader.GetString(17));
+            cereal.Image = reader.GetBytes(17, index, buffer, 0, size);
 
             return cereal;
         }
+        
+        
     }
 }

@@ -19,9 +19,9 @@
         private double _weight;
         private double _cups;
         private double _rating;
-        private string _image;
+        private byte[] _image;
 
-        public Cereal(int id, string name, string mfr, string type, int calories, int protein, int fat, int sodium, double fiber, double carbo, int sugars, int potass, int vitamins, int shelf, double weight, double cups, double rating, string image)
+        public Cereal(int id, string name, string mfr, string type, int calories, int protein, int fat, int sodium, double fiber, double carbo, int sugars, int potass, int vitamins, int shelf, double weight, double cups, double rating, byte[] image)
         {
             _id = id;
             _name = name;
@@ -189,7 +189,7 @@
             }
         }
 
-        public string Image
+        public byte[] Image
         {
             get { return _image; }
             set { _image = value; }

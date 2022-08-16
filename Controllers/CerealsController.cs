@@ -13,12 +13,12 @@ namespace CerealREST.Controllers
     {
         private static readonly List<Cereal> Cereals = new List<Cereal>()
         {
-            new Cereal(1, "Count Chocula", "N", "C", 121, 2, 3, 111, 3, 11, 13, 230, 0, 2, 3, 5, 4, "https://www.innit.com/public/products/images/00043000180327-vnixRi8UOOMAoo4-en-US-0_s500.jpg"),
-            new Cereal(2, "Frankenberry", "K", "C", 141, 1, 4, 151, 2, 15, 3, 235, 0, 2, 3, 2, 3, ""),
-            new Cereal(3, "Frosted Flakes", "N", "F", 121, 3, 7, 121, 3, 11, 13, 330, 0, 2, 3, 5, 5, ""),
-            new Cereal(4, "Almond Delight", "R", "C", 110, 2, 2, 200, 1, 14, 8, -1, 25, 3, 1, 1, 3, ""),
-            new Cereal(5, "Apple Cinnamon Cheerios", "G", "C", 110, 2, 2, 180, 2, 11, 10, 70, 25, 1, 1, 1, 3, ""),
-            new Cereal(6, "Apple Jacks", "K", "C", 110, 2, 0, 125, 1, 11, 14, 30, 25, 2, 1, 1, 4, "")
+            //new Cereal(1, "Count Chocula", "N", "C", 121, 2, 3, 111, 3, 11, 13, 230, 0, 2, 3, 5, 4, ),
+            //new Cereal(2, "Frankenberry", "K", "C", 141, 1, 4, 151, 2, 15, 3, 235, 0, 2, 3, 2, 3, ),
+            //new Cereal(3, "Frosted Flakes", "N", "F", 121, 3, 7, 121, 3, 11, 13, 330, 0, 2, 3, 5, 5, ),
+            //new Cereal(4, "Almond Delight", "R", "C", 110, 2, 2, 200, 1, 14, 8, -1, 25, 3, 1, 1, 3, ),
+            //new Cereal(5, "Apple Cinnamon Cheerios", "G", "C", 110, 2, 2, 180, 2, 11, 10, 70, 25, 1, 1, 1, 3, ""),
+            //new Cereal(6, "Apple Jacks", "K", "C", 110, 2, 0, 125, 1, 11, 14, 30, 25, 2, 1, 1, 4, "")
         };
 
         // GET: api/<CerealsController>
@@ -54,15 +54,6 @@ namespace CerealREST.Controllers
             //    return NotFound(knfe.Message);
             //}
         }
-
-        //[HttpGet]
-        //public FileContentResult show()
-        //{
-        //    // get strings from db
-        //    string base64image = "https://www.innit.com/public/products/images/00043000180327-vnixRi8UOOMAoo4-en-US-0_s500.jpg";
-        //    byte[] Picture = Convert.FromBase64String(base64image);
-        //    return File(Picture, "image/png");
-        //}
 
         //// GET api/<CerealsController>/calories/120
         //[HttpGet]
@@ -102,13 +93,13 @@ namespace CerealREST.Controllers
             return mc.GetBySortingCategory(category2, sort, cate2);
         }
 
-        [HttpGet]
-        [Route("sugars/{sugars}/fat/{fat}")]
-        public IEnumerable<Cereal> GetBySugarsAndFat(int sugars, int fat)
-        {
-            ManageCereal mc = new ManageCereal();
-            return mc.GetBySugarsAndFat(sugars, fat);
-        }
+        //[HttpGet]
+        //[Route("sugars/{sugars}/fat/{fat}")]
+        //public IEnumerable<Cereal> GetBySugarsAndFat(int sugars, int fat)
+        //{
+        //    ManageCereal mc = new ManageCereal();
+        //    return mc.GetBySugarsAndFat(sugars, fat);
+        //}
 
         //// POST api/<CerealsController>
         //[HttpPost]
