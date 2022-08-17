@@ -19,9 +19,8 @@
         private double _weight;
         private double _cups;
         private double _rating;
-        private byte[] _image;
 
-        public Cereal(int id, string name, string mfr, string type, int calories, int protein, int fat, int sodium, double fiber, double carbo, int sugars, int potass, int vitamins, int shelf, double weight, double cups, double rating, byte[] image)
+        public Cereal(int id, string name, string mfr, string type, int calories, int protein, int fat, int sodium, double fiber, double carbo, int sugars, int potass, int vitamins, int shelf, double weight, double cups, double rating)
         {
             _id = id;
             _name = name;
@@ -40,7 +39,6 @@
             _weight = weight;
             _cups = cups;
             _rating = rating;
-            _image = image;
         }
 
         public Cereal()
@@ -189,19 +187,13 @@
             }
         }
 
-        public byte[] Image
-        {
-            get { return _image; }
-            set { _image = value; }
-        }
-
         public override string ToString()
         {
             return $"{nameof(Id)}: {_id}, {nameof(Name)}: {_name}, {nameof(Mfr)}: {_mfr}, " +
                 $"{nameof(Type)}: {_type}, {nameof(Calories)}: {_calories}, {nameof(Protein)}: {_protein}, " +
                 $"{nameof(Fat)}: {_fat}, {nameof(Sodium)}: {_sodium}, {nameof(Fiber)}: {_fiber}, " +
                 $"{nameof(Carbo)}: {_carbo}, {nameof(Sugars)}: {_sugars}, {nameof(Potass)}: {_potass}, {nameof(Vitamins)}: {_vitamins}, " +
-                $"{nameof(Shelf)}: {_shelf}, {nameof(Weight)}: {_weight}, {nameof(Cups)}: {_cups}, {nameof(Rating)}: {_rating}, {nameof(Image)}: {_image}.";
+                $"{nameof(Shelf)}: {_shelf}, {nameof(Weight)}: {_weight}, {nameof(Cups)}: {_cups}, {nameof(Rating)}: {_rating}.";
         }
     }
 }

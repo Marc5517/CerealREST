@@ -710,7 +710,7 @@ namespace CerealREST.DBUtil
 
         }
 
-        private const String INSERT = "insert into Cereal2(Name, Mfr, Type, Calories, Protein, Fat, Sodium, Fiber, Carbo, Sugars, Potass, Vitamins, Shelf, Weight, Cups, Rating, Image) Values(@Name, @Mfr, @Type, @Calories, @Protein, @Fat, @Sodium, @Fiber, @Carbo, @Sugars, @Potass, @Vitamins, @Shelf, @Weight, @Cups, @Rating, @Image)";
+        private const String INSERT = "insert into Cereal2(Name, Mfr, Type, Calories, Protein, Fat, Sodium, Fiber, Carbo, Sugars, Potass, Vitamins, Shelf, Weight, Cups, Rating) Values(@Name, @Mfr, @Type, @Calories, @Protein, @Fat, @Sodium, @Fiber, @Carbo, @Sugars, @Potass, @Vitamins, @Shelf, @Weight, @Cups, @Rating)";
 
         public void Add(Cereal value)
         {
@@ -734,7 +734,6 @@ namespace CerealREST.DBUtil
                 cmd.Parameters.AddWithValue("@Weight", value.Weight);
                 cmd.Parameters.AddWithValue("@Cups", value.Cups);
                 cmd.Parameters.AddWithValue("@Rating", value.Rating);
-                cmd.Parameters.AddWithValue("@Image", value.Image);
 
                 int rowsAffected = cmd.ExecuteNonQuery();
             }
@@ -774,10 +773,10 @@ namespace CerealREST.DBUtil
         {
             Cereal cereal = new Cereal();
 
-            int size = 1024 * 1024;
-            byte[] buffer = new byte[size];
-            int readBytes = 0;
-            int index = 0;
+            //int size = 1024 * 1024;
+            //byte[] buffer = new byte[size];
+            //int readBytes = 0;
+            //int index = 0;
 
             cereal.Id = reader.GetInt32(0);
             cereal.Name = reader.GetString(1);
@@ -797,7 +796,7 @@ namespace CerealREST.DBUtil
             cereal.Cups = reader.GetDouble(15);
             cereal.Rating = reader.SafeGetDouble(16);
             //cereal.Image = (byte[])Convert.FromBase64String(reader.GetString(17));
-            cereal.Image = reader.GetBytes(17, index, buffer, 0, size);
+            //cereal.Image = reader.GetBytes(17, index, buffer, 0, size);
 
             return cereal;
         }
