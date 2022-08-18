@@ -36,7 +36,6 @@ namespace CerealREST.DBUtil
             cerealI.ImgId = reader.GetInt32(0);
             cerealI.ImgName = reader.GetString(1);
             byte[] img = (byte[])(reader[2]);
-            //Image image = ByteArrayToImage(img);
             cerealI.ImgData = img;
             
 
@@ -44,12 +43,5 @@ namespace CerealREST.DBUtil
 
         }
 
-        //public Image ByteArrayToImage(byte[] data)
-        //{
-        //    using (var ms = new MemoryStream(data))
-        //    {
-        //        return Image.FromStream(ms);
-        //    }
-        //}
     }
 }

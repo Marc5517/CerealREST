@@ -25,20 +25,11 @@ namespace CerealREST.Controllers
             ManageCerealImage mci = new ManageCerealImage();
             if (mci.GetById(imgId).ImgId > 0)
             {
-                Image image = ByteArrayToImage(mci.GetById(imgId).ImgData);
-                //return Ok(mci.GetById(imgId));
-                return Ok(image);
+                return File(mci.GetById(imgId).ImgData, "image/jpeg");
             }
-            return NotFound($"Cereal id {imgId} not found, meaning the object doesn't exist.");
+            return null;
         }
 
-        private Image ByteArrayToImage(byte[] data)
-        {
-            using (var ms = new MemoryStream(data))
-            {
-                return Image.FromStream(ms);
-            }
-        }
 
         //// POST api/<CerealImagesController>
         //[HttpPost]
