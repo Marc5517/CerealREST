@@ -49,653 +49,667 @@ namespace CerealREST.DBUtil
             return c;
         }
 
-        //private const String Get_By_Calories = "Select * from Cereal2 where Calories = @Calories";
-
-        //public IEnumerable<Cereal> GetByCalories(int calories)
-        //{
-        //    List<Cereal> cereals = new List<Cereal>();
-
-        //    using (SqlConnection conn = new SqlConnection(connectionString))
-        //    {
-        //        conn.Open();
-
-        //        using (SqlCommand cmd = new SqlCommand(Get_By_Calories, conn))
-        //        {
-        //            cmd.Parameters.AddWithValue("@Calories", calories);
-        //            SqlDataReader reader = cmd.ExecuteReader();
-        //            while (reader.Read())
-        //            {
-        //                Cereal cer = ReadNextElement(reader);
-        //                cereals.Add(cer);
-        //            }
-        //            reader.Close();
-        //        }
-        //    }
-        //    return cereals;
-        //}
-
-        //private const String Get_By_Type = "Select * from Cereal2 where Type IN (@Type)";
-
-        //public IEnumerable<Cereal> GetByType(string type)
-        //{
-        //    List<Cereal> cereals = new List<Cereal>();
-
-        //    using (SqlConnection conn = new SqlConnection(connectionString))
-        //    {
-        //        conn.Open();
-
-        //        using (SqlCommand cmd = new SqlCommand(Get_By_Type, conn))
-        //        {
-        //            cmd.Parameters.AddWithValue("@Type", $"{type}");
-        //            SqlDataReader reader = cmd.ExecuteReader();
-        //            while (reader.Read())
-        //            {
-        //                Cereal cer = ReadNextElement(reader);
-        //                cereals.Add(cer);
-        //            }
-        //            reader.Close();
-        //        }
-        //    }
-        //    return cereals;
-        //}
-
         //private const String Get_By_Category = "Select * From Cereal2 Where @category IN (@cate)";
-        private const String Get_By_Name = "Select * from Cereal2 Where Name IN (@cate)";
-        private const String Get_By_Mfr = "Select * from Cereal2 Where Mfr IN (@cate)";
-        private const String Get_By_Type = "Select * from Cereal2 Where Type IN (@cate)";
-        private const String Get_By_Calories = "Select * from Cereal2 Where Calories IN (@cate)";
-        private const String Get_By_Fat = "Select * from Cereal2 Where Fat IN (@cate)";
-        private const String Get_By_Sodium = "Select * from Cereal2 Where Sodium IN (@cate)";
-        private const String Get_By_Fiber = "Select * from Cereal2 Where Name IN (@cate)";
-        private const String Get_By_Protein = "Select * from Cereal2 Where Protein IN (@cate)";
-        private const String Get_By_Carbo = "Select * from Cereal2 Where Carbo IN (@cate)";
-        private const String Get_By_Sugars = "Select * from Cereal2 Where Sugars IN (@cate)";
-        private const String Get_By_Potass = "Select * from Cereal2 Where Potass IN (@cate)";
-        private const String Get_By_Vitamins = "Select * from Cereal2 Where Vitamins IN (@cate)";
-        private const String Get_By_Shelf = "Select * from Cereal2 Where Shelf IN (@cate)";
-        private const String Get_By_Weight = "Select * from Cereal2 Where Weight IN (@cate)";
-        private const String Get_By_Cups = "Select * from Cereal2 Where Cups IN (@cate)";
-        private const String Get_By_Rating = "Select * from Cereal2 Where Rating IN (@cate)";
+        //private const String Get_By_Name = "Select * from Cereal2 Where Name IN (@cate)";
+        //private const String Get_By_Mfr = "Select * from Cereal2 Where Mfr IN (@cate)";
+        //private const String Get_By_Type = "Select * from Cereal2 Where Type IN (@cate)";
+        //private const String Get_By_Calories = "Select * from Cereal2 Where Calories IN (@cate)";
+        //private const String Get_By_Fat = "Select * from Cereal2 Where Fat IN (@cate)";
+        //private const String Get_By_Sodium = "Select * from Cereal2 Where Sodium IN (@cate)";
+        //private const String Get_By_Fiber = "Select * from Cereal2 Where Name IN (@cate)";
+        //private const String Get_By_Protein = "Select * from Cereal2 Where Protein IN (@cate)";
+        //private const String Get_By_Carbo = "Select * from Cereal2 Where Carbo IN (@cate)";
+        //private const String Get_By_Sugars = "Select * from Cereal2 Where Sugars IN (@cate)";
+        //private const String Get_By_Potass = "Select * from Cereal2 Where Potass IN (@cate)";
+        //private const String Get_By_Vitamins = "Select * from Cereal2 Where Vitamins IN (@cate)";
+        //private const String Get_By_Shelf = "Select * from Cereal2 Where Shelf IN (@cate)";
+        //private const String Get_By_Weight = "Select * from Cereal2 Where Weight IN (@cate)";
+        //private const String Get_By_Cups = "Select * from Cereal2 Where Cups IN (@cate)";
+        //private const String Get_By_Rating = "Select * from Cereal2 Where Rating IN (@cate)";
 
-        public IEnumerable<Cereal> GetByCategory(string category, string cate)
+        //public IEnumerable<Cereal> GetByCategory(string category, string cate)
+        //{
+        //    List<Cereal> cList = new List<Cereal>();
+
+        //    var cQuery = "";
+
+        //    if (category == "Name")
+        //    {
+        //        cQuery = Get_By_Name;
+        //    }
+        //    else if (category == "Mfr")
+        //    {
+        //        cQuery = Get_By_Mfr;
+        //    }
+        //    else if (category == "Type")
+        //    {
+        //        cQuery = Get_By_Type;
+        //    }
+        //    else if (category == "Calories")
+        //    {
+        //        cQuery = Get_By_Calories;
+        //    }
+        //    else if (category == "Protein")
+        //    {
+        //        cQuery = Get_By_Protein;
+        //    }
+        //    else if (category == "Fat")
+        //    {
+        //        cQuery = Get_By_Fat;
+        //    }
+        //    else if (category == "Sodium")
+        //    {
+        //        cQuery = Get_By_Sodium;
+        //    }
+        //    else if (category == "Fiber")
+        //    {
+        //        cQuery = Get_By_Fiber;
+        //    }
+        //    else if (category == "Carbo")
+        //    {
+        //        cQuery = Get_By_Carbo;
+        //    }
+        //    else if (category == "Sugars")
+        //    {
+        //        cQuery = Get_By_Sugars;
+        //    }
+        //    else if (category == "Potass")
+        //    {
+        //        cQuery = Get_By_Potass;
+        //    }
+        //    else if (category == "Vitamins")
+        //    {
+        //        cQuery = Get_By_Vitamins;
+        //    }
+        //    else if (category == "Shelf")
+        //    {
+        //        cQuery = Get_By_Shelf;
+        //    }
+        //    else if (category == "Weight")
+        //    {
+        //        cQuery = Get_By_Weight;
+        //    }
+        //    else if (category == "Cups")
+        //    {
+        //        cQuery = Get_By_Cups;
+        //    }
+        //    else if (category == "Rating")
+        //    {
+        //        cQuery = Get_By_Rating;
+        //    }
+
+        //    using (SqlConnection conn = new SqlConnection(connectionString))
+        //    {
+        //        conn.Open();
+
+        //        using (SqlCommand cmd = new SqlCommand(cQuery, conn))
+        //        {
+        //            //cmd.Parameters.AddWithValue("@category", $"{category}");
+        //            cmd.Parameters.AddWithValue("@cate", $"{cate}");
+        //            SqlDataReader reader = cmd.ExecuteReader();
+        //            while (reader.Read())
+        //            {
+        //                Cereal cer = ReadNextElement(reader);
+        //                cList.Add(cer);
+        //            }
+        //            reader.Close();
+        //        }
+        //    }
+
+        //    return cList;
+
+        //}
+
+        //private const String Get_By_Exact_Calories = "Select * from Cereal2 Where Calories = @cate";
+        //private const String Get_By_Low_Or_Equal_Calories = "Select * from Cereal2 Where Calories >= @cate";
+        //private const String Get_By_High_Or_Equal_Calories = "Select * from Cereal2 Where Calories <= @cate";
+        //private const String Get_By_Low_Calories = "Select * from Cereal2 Where Calories > @cate";
+        //private const String Get_By_High_Calories = "Select * from Cereal2 Where Calories < @cate";
+        //private const String Get_By_Not_Equal_Calories = "Select * from Cereal2 Where Calories != @cate";
+
+        //private const String Get_By_Exact_Fat = "Select * from Cereal2 Where Fat = @cate";
+        //private const String Get_By_Low_Or_Equal_Fat = "Select * from Cereal2 Where Fat >= @cate";
+        //private const String Get_By_High_Or_Equal_Fat = "Select * from Cereal2 Where Fat <= @cate";
+        //private const String Get_By_Low_Fat = "Select * from Cereal2 Where Fat > @cate";
+        //private const String Get_By_High_Fat = "Select * from Cereal2 Where Fat < @cate";
+        //private const String Get_By_Not_Equal_Fat = "Select * from Cereal2 Where Fat != @cate";
+
+        //private const String Get_By_Exact_Protein = "Select * from Cereal2 Where Protein = @cate";
+        //private const String Get_By_Low_Or_Equal_Protein = "Select * from Cereal2 Where Protein >= @cate";
+        //private const String Get_By_High_Or_Equal_Protein = "Select * from Cereal2 Where Protein <= @cate";
+        //private const String Get_By_Low_Protein = "Select * from Cereal2 Where Protein > @cate";
+        //private const String Get_By_High_Protein = "Select * from Cereal2 Where Protein < @cate";
+        //private const String Get_By_Not_Equal_Protein = "Select * from Cereal2 Where Protein != @cate";
+
+        //private const String Get_By_Exact_Sodium = "Select * from Cereal2 Where Sodium = @cate";
+        //private const String Get_By_Low_Or_Equal_Sodium = "Select * from Cereal2 Where Sodium >= @cate";
+        //private const String Get_By_High_Or_Equal_Sodium = "Select * from Cereal2 Where Sodium <= @cate";
+        //private const String Get_By_Low_Sodium = "Select * from Cereal2 Where Sodium > @cate";
+        //private const String Get_By_High_Sodium = "Select * from Cereal2 Where Sodium < @cate";
+        //private const String Get_By_Not_Equal_Sodium = "Select * from Cereal2 Where Sodium != @cate";
+
+        //private const String Get_By_Exact_Fiber = "Select * from Cereal2 Where Fiber = @cate";
+        //private const String Get_By_Low_Or_Equal_Fiber = "Select * from Cereal2 Where Fiber >= @cate";
+        //private const String Get_By_High_Or_Equal_Fiber = "Select * from Cereal2 Where Fiber <= @cate";
+        //private const String Get_By_Low_Fiber = "Select * from Cereal2 Where Fiber > @cate";
+        //private const String Get_By_High_Fiber = "Select * from Cereal2 Where Fiber < @cate";
+        //private const String Get_By_Not_Equal_Fiber = "Select * from Cereal2 Where Fiber != @cate";
+
+        //private const String Get_By_Exact_Carbo = "Select * from Cereal2 Where Carbo = @cate";
+        //private const String Get_By_Low_Or_Equal_Carbo = "Select * from Cereal2 Where Carbo >= @cate";
+        //private const String Get_By_High_Or_Equal_Carbo = "Select * from Cereal2 Where Carbo <= @cate";
+        //private const String Get_By_Low_Carbo = "Select * from Cereal2 Where Carbo > @cate";
+        //private const String Get_By_High_Carbo = "Select * from Cereal2 Where Carbo < @cate";
+        //private const String Get_By_Not_Equal_Carbo = "Select * from Cereal2 Where Carbo != @cate";
+
+        //private const String Get_By_Exact_Sugars = "Select * from Cereal2 Where Sugars = @cate";
+        //private const String Get_By_Low_Or_Equal_Sugars = "Select * from Cereal2 Where Sugars >= @cate";
+        //private const String Get_By_High_Or_Equal_Sugars = "Select * from Cereal2 Where Sugars <= @cate";
+        //private const String Get_By_Low_Sugars = "Select * from Cereal2 Where Sugars > @cate";
+        //private const String Get_By_High_Sugars = "Select * from Cereal2 Where Sugars < @cate";
+        //private const String Get_By_Not_Equal_Sugars = "Select * from Cereal2 Where Sugars != @cate";
+
+        //private const String Get_By_Exact_Potass = "Select * from Cereal2 Where Potass = @cate";
+        //private const String Get_By_Low_Or_Equal_Potass = "Select * from Cereal2 Where Potass >= @cate";
+        //private const String Get_By_High_Or_Equal_Potass = "Select * from Cereal2 Where Potass <= @cate";
+        //private const String Get_By_Low_Potass = "Select * from Cereal2 Where Potass > @cate";
+        //private const String Get_By_High_Potass = "Select * from Cereal2 Where Potass < @cate";
+        //private const String Get_By_Not_Equal_Potass = "Select * from Cereal2 Where Potass != @cate";
+
+        //private const String Get_By_Exact_Vitamins = "Select * from Cereal2 Where Vitamins = @cate";
+        //private const String Get_By_Low_Or_Equal_Vitamins = "Select * from Cereal2 Where Vitamins >= @cate";
+        //private const String Get_By_High_Or_Equal_Vitamins = "Select * from Cereal2 Where Vitamins <= @cate";
+        //private const String Get_By_Low_Vitamins = "Select * from Cereal2 Where Vitamins > @cate";
+        //private const String Get_By_High_Vitamins = "Select * from Cereal2 Where Vitamins < @cate";
+        //private const String Get_By_Not_Equal_Vitamins = "Select * from Cereal2 Where Vitamins != @cate";
+
+        //private const String Get_By_Exact_Shelf = "Select * from Cereal2 Where Shelf = @cate";
+        //private const String Get_By_Low_Or_Equal_Shelf = "Select * from Cereal2 Where Shelf >= @cate";
+        //private const String Get_By_High_Or_Equal_Shelf = "Select * from Cereal2 Where Shelf <= @cate";
+        //private const String Get_By_Low_Shelf = "Select * from Cereal2 Where Shelf > @cate";
+        //private const String Get_By_High_Shelf = "Select * from Cereal2 Where Shelf < @cate";
+        //private const String Get_By_Not_Equal_Shelf = "Select * from Cereal2 Where Shelf != @cate";
+
+        //private const String Get_By_Exact_Weight = "Select * from Cereal2 Where Weight = @cate";
+        //private const String Get_By_Low_Or_Equal_Weight = "Select * from Cereal2 Where Weight >= @cate";
+        //private const String Get_By_High_Or_Equal_Weight = "Select * from Cereal2 Where Weight <= @cate";
+        //private const String Get_By_Low_Weight = "Select * from Cereal2 Where Weight > @cate";
+        //private const String Get_By_High_Weight = "Select * from Cereal2 Where Weight < @cate";
+        //private const String Get_By_Not_Equal_Weight = "Select * from Cereal2 Where Weight != @cate";
+
+        //private const String Get_By_Exact_Cups = "Select * from Cereal2 Where Cups = @cate";
+        //private const String Get_By_Low_Or_Equal_Cups = "Select * from Cereal2 Where Cups >= @cate";
+        //private const String Get_By_High_Or_Equal_Cups = "Select * from Cereal2 Where Cups <= @cate";
+        //private const String Get_By_Low_Cups = "Select * from Cereal2 Where Cups > @cate";
+        //private const String Get_By_High_Cups = "Select * from Cereal2 Where Cups < @cate";
+        //private const String Get_By_Not_Equal_Cups = "Select * from Cereal2 Where Cups != @cate";
+
+        //private const String Get_By_Exact_Rating = "Select * from Cereal2 Where Rating = @cate";
+        //private const String Get_By_Low_Or_Equal_Rating = "Select * from Cereal2 Where Rating >= @cate";
+        //private const String Get_By_High_Or_Equal_Rating = "Select * from Cereal2 Where Rating <= @cate";
+        //private const String Get_By_Low_Rating = "Select * from Cereal2 Where Rating > @cate";
+        //private const String Get_By_High_Rating = "Select * from Cereal2 Where Rating < @cate";
+        //private const String Get_By_Not_Equal_Rating = "Select * from Cereal2 Where Rating != @cate";
+
+        //public IEnumerable<Cereal> GetBySortingCategory(string category2, string sort, int cate2)
+        //{
+        //    List<Cereal> cList = new List<Cereal>();
+
+        //    var cQuery = "";
+
+        //    if (category2 == "Calories")
+        //    {
+        //        if (sort == "=")
+        //        {
+        //            cQuery = Get_By_Exact_Calories;
+        //        }
+        //        else if (sort == ">=")
+        //        {
+        //            cQuery = Get_By_Low_Or_Equal_Calories;
+        //        }
+        //        else if (sort == "<=")
+        //        {
+        //            cQuery = Get_By_High_Or_Equal_Calories;
+        //        }
+        //        else if (sort == ">")
+        //        {
+        //            cQuery = Get_By_Low_Calories;
+        //        }
+        //        else if (sort == "<")
+        //        {
+        //            cQuery = Get_By_High_Calories;
+        //        }
+        //        else if (sort == "!=")
+        //        {
+        //            cQuery = Get_By_Not_Equal_Calories;
+        //        }
+        //    }
+        //    else if (category2 == "Fat")
+        //    {
+        //        if (sort == "=")
+        //        {
+        //            cQuery = Get_By_Exact_Fat;
+        //        }
+        //        else if (sort == ">=")
+        //        {
+        //            cQuery = Get_By_Low_Or_Equal_Fat;
+        //        }
+        //        else if (sort == "<=")
+        //        {
+        //            cQuery = Get_By_High_Or_Equal_Fat;
+        //        }
+        //        else if (sort == ">")
+        //        {
+        //            cQuery = Get_By_Low_Fat;
+        //        }
+        //        else if (sort == "<")
+        //        {
+        //            cQuery = Get_By_High_Fat;
+        //        }
+        //        else if (sort == "!=")
+        //        {
+        //            cQuery = Get_By_Not_Equal_Fat;
+        //        }
+        //    }
+        //    else if (category2 == "Protein")
+        //    {
+        //        if (sort == "=")
+        //        {
+        //            cQuery = Get_By_Exact_Protein;
+        //        }
+        //        else if (sort == ">=")
+        //        {
+        //            cQuery = Get_By_Low_Or_Equal_Protein;
+        //        }
+        //        else if (sort == "<=")
+        //        {
+        //            cQuery = Get_By_High_Or_Equal_Protein;
+        //        }
+        //        else if (sort == ">")
+        //        {
+        //            cQuery = Get_By_Low_Protein;
+        //        }
+        //        else if (sort == "<")
+        //        {
+        //            cQuery = Get_By_High_Protein;
+        //        }
+        //        else if (sort == "!=")
+        //        {
+        //            cQuery = Get_By_Not_Equal_Protein;
+        //        }
+        //    }
+        //    else if (category2 == "Sodium")
+        //    {
+        //        if (sort == "=")
+        //        {
+        //            cQuery = Get_By_Exact_Sodium;
+        //        }
+        //        else if (sort == ">=")
+        //        {
+        //            cQuery = Get_By_Low_Or_Equal_Sodium;
+        //        }
+        //        else if (sort == "<=")
+        //        {
+        //            cQuery = Get_By_High_Or_Equal_Sodium;
+        //        }
+        //        else if (sort == ">")
+        //        {
+        //            cQuery = Get_By_Low_Sodium;
+        //        }
+        //        else if (sort == "<")
+        //        {
+        //            cQuery = Get_By_High_Sodium;
+        //        }
+        //        else if (sort == "!=")
+        //        {
+        //            cQuery = Get_By_Not_Equal_Sodium;
+        //        }
+        //    }
+        //    else if (category2 == "Fiber")
+        //    {
+        //        if (sort == "=")
+        //        {
+        //            cQuery = Get_By_Exact_Fiber;
+        //        }
+        //        else if (sort == ">=")
+        //        {
+        //            cQuery = Get_By_Low_Or_Equal_Fiber;
+        //        }
+        //        else if (sort == "<=")
+        //        {
+        //            cQuery = Get_By_High_Or_Equal_Fiber;
+        //        }
+        //        else if (sort == ">")
+        //        {
+        //            cQuery = Get_By_Low_Fiber;
+        //        }
+        //        else if (sort == "<")
+        //        {
+        //            cQuery = Get_By_High_Fiber;
+        //        }
+        //        else if (sort == "!=")
+        //        {
+        //            cQuery = Get_By_Not_Equal_Fiber;
+        //        }
+        //    }
+        //    else if (category2 == "Carbo")
+        //    {
+        //        if (sort == "=")
+        //        {
+        //            cQuery = Get_By_Exact_Carbo;
+        //        }
+        //        else if (sort == ">=")
+        //        {
+        //            cQuery = Get_By_Low_Or_Equal_Carbo;
+        //        }
+        //        else if (sort == "<=")
+        //        {
+        //            cQuery = Get_By_High_Or_Equal_Carbo;
+        //        }
+        //        else if (sort == ">")
+        //        {
+        //            cQuery = Get_By_Low_Carbo;
+        //        }
+        //        else if (sort == "<")
+        //        {
+        //            cQuery = Get_By_High_Carbo;
+        //        }
+        //        else if (sort == "!=")
+        //        {
+        //            cQuery = Get_By_Not_Equal_Carbo;
+        //        }
+        //    }
+        //    else if (category2 == "Sugars")
+        //    {
+        //        if (sort == "=")
+        //        {
+        //            cQuery = Get_By_Exact_Sugars;
+        //        }
+        //        else if (sort == ">=")
+        //        {
+        //            cQuery = Get_By_Low_Or_Equal_Sugars;
+        //        }
+        //        else if (sort == "<=")
+        //        {
+        //            cQuery = Get_By_High_Or_Equal_Sugars;
+        //        }
+        //        else if (sort == ">")
+        //        {
+        //            cQuery = Get_By_Low_Sugars;
+        //        }
+        //        else if (sort == "<")
+        //        {
+        //            cQuery = Get_By_High_Sugars;
+        //        }
+        //        else if (sort == "!=")
+        //        {
+        //            cQuery = Get_By_Not_Equal_Sugars;
+        //        }
+        //    }
+        //    else if (category2 == "Potass")
+        //    {
+        //        if (sort == "=")
+        //        {
+        //            cQuery = Get_By_Exact_Potass;
+        //        }
+        //        else if (sort == ">=")
+        //        {
+        //            cQuery = Get_By_Low_Or_Equal_Potass;
+        //        }
+        //        else if (sort == "<=")
+        //        {
+        //            cQuery = Get_By_High_Or_Equal_Potass;
+        //        }
+        //        else if (sort == ">")
+        //        {
+        //            cQuery = Get_By_Low_Potass;
+        //        }
+        //        else if (sort == "<")
+        //        {
+        //            cQuery = Get_By_High_Potass;
+        //        }
+        //        else if (sort == "!=")
+        //        {
+        //            cQuery = Get_By_Not_Equal_Potass;
+        //        }
+        //    }
+        //    else if (category2 == "Vitamins")
+        //    {
+        //        if (sort == "=")
+        //        {
+        //            cQuery = Get_By_Exact_Vitamins;
+        //        }
+        //        else if (sort == ">=")
+        //        {
+        //            cQuery = Get_By_Low_Or_Equal_Vitamins;
+        //        }
+        //        else if (sort == "<=")
+        //        {
+        //            cQuery = Get_By_High_Or_Equal_Vitamins;
+        //        }
+        //        else if (sort == ">")
+        //        {
+        //            cQuery = Get_By_Low_Vitamins;
+        //        }
+        //        else if (sort == "<")
+        //        {
+        //            cQuery = Get_By_High_Vitamins;
+        //        }
+        //        else if (sort == "!=")
+        //        {
+        //            cQuery = Get_By_Not_Equal_Vitamins;
+        //        }
+        //    }
+        //    else if (category2 == "Shelf")
+        //    {
+        //        if (sort == "=")
+        //        {
+        //            cQuery = Get_By_Exact_Shelf;
+        //        }
+        //        else if (sort == ">=")
+        //        {
+        //            cQuery = Get_By_Low_Or_Equal_Shelf;
+        //        }
+        //        else if (sort == "<=")
+        //        {
+        //            cQuery = Get_By_High_Or_Equal_Shelf;
+        //        }
+        //        else if (sort == ">")
+        //        {
+        //            cQuery = Get_By_Low_Shelf;
+        //        }
+        //        else if (sort == "<")
+        //        {
+        //            cQuery = Get_By_High_Shelf;
+        //        }
+        //        else if (sort == "!=")
+        //        {
+        //            cQuery = Get_By_Not_Equal_Shelf;
+        //        }
+        //    }
+        //    else if (category2 == "Weight")
+        //    {
+        //        if (sort == "=")
+        //        {
+        //            cQuery = Get_By_Exact_Weight;
+        //        }
+        //        else if (sort == ">=")
+        //        {
+        //            cQuery = Get_By_Low_Or_Equal_Weight;
+        //        }
+        //        else if (sort == "<=")
+        //        {
+        //            cQuery = Get_By_High_Or_Equal_Weight;
+        //        }
+        //        else if (sort == ">")
+        //        {
+        //            cQuery = Get_By_Low_Weight;
+        //        }
+        //        else if (sort == "<")
+        //        {
+        //            cQuery = Get_By_High_Weight;
+        //        }
+        //        else if (sort == "!=")
+        //        {
+        //            cQuery = Get_By_Not_Equal_Weight;
+        //        }
+        //    }
+        //    else if (category2 == "Cups")
+        //    {
+        //        if (sort == "=")
+        //        {
+        //            cQuery = Get_By_Exact_Cups;
+        //        }
+        //        else if (sort == ">=")
+        //        {
+        //            cQuery = Get_By_Low_Or_Equal_Cups;
+        //        }
+        //        else if (sort == "<=")
+        //        {
+        //            cQuery = Get_By_High_Or_Equal_Cups;
+        //        }
+        //        else if (sort == ">")
+        //        {
+        //            cQuery = Get_By_Low_Cups;
+        //        }
+        //        else if (sort == "<")
+        //        {
+        //            cQuery = Get_By_High_Cups;
+        //        }
+        //        else if (sort == "!=")
+        //        {
+        //            cQuery = Get_By_Not_Equal_Cups;
+        //        }
+        //    }
+        //    else if (category2 == "Rating")
+        //    {
+        //        if (sort == "=")
+        //        {
+        //            cQuery = Get_By_Exact_Rating;
+        //        }
+        //        else if (sort == ">=")
+        //        {
+        //            cQuery = Get_By_Low_Or_Equal_Rating;
+        //        }
+        //        else if (sort == "<=")
+        //        {
+        //            cQuery = Get_By_High_Or_Equal_Rating;
+        //        }
+        //        else if (sort == ">")
+        //        {
+        //            cQuery = Get_By_Low_Rating;
+        //        }
+        //        else if (sort == "<")
+        //        {
+        //            cQuery = Get_By_High_Rating;
+        //        }
+        //        else if (sort == "!=")
+        //        {
+        //            cQuery = Get_By_Not_Equal_Rating;
+        //        }
+        //    }
+
+
+        //    using (SqlConnection conn = new SqlConnection(connectionString))
+        //    {
+        //        conn.Open();
+
+        //        using (SqlCommand cmd = new SqlCommand(cQuery, conn))
+        //        {
+        //            //cmd.Parameters.AddWithValue("@category", $"{category}");
+        //            cmd.Parameters.AddWithValue("@cate", $"{cate2}");
+        //            SqlDataReader reader = cmd.ExecuteReader();
+        //            while (reader.Read())
+        //            {
+        //                Cereal cer = ReadNextElement(reader);
+        //                cList.Add(cer);
+        //            }
+        //            reader.Close();
+        //        }
+        //    }
+
+        //    return cList;
+
+        //}
+
+        //private const String Sugars_And_Fat = "Select * from Cereal2 where Sugars <= @Sugars AND Fat <= @Fat";
+
+        //public IEnumerable<Cereal> GetBySugarsAndFat(int sugars, int fat)
+        //{
+        //    List<Cereal> cList = new List<Cereal>();
+
+        //    using (SqlConnection conn = new SqlConnection(connectionString))
+        //    {
+        //        conn.Open();
+
+        //        using (SqlCommand cmd = new SqlCommand(Sugars_And_Fat, conn))
+        //        {
+        //            cmd.Parameters.AddWithValue("@Sugars", sugars);
+        //            cmd.Parameters.AddWithValue("@Fat", fat);
+        //            SqlDataReader reader = cmd.ExecuteReader();
+        //            while (reader.Read())
+        //            {
+        //                Cereal cer = ReadNextElement(reader);
+        //                cList.Add(cer);
+        //            }
+        //            reader.Close();
+        //        }
+        //    }
+
+        //    return cList;
+
+        //}
+
+        private const String Get_By_Sorting = "Select * from Cereal2 Where (@Name is NULL or [Name] = @Name) AND (@mfr is NULL or Mfr = @mfr) AND" +
+            "(@Type is NULL or [Type] = @Type) AND (@CaloriesGt is NULL or Calories = @CaloriesGt) AND (@CaloriesLT is NULL or Calories = @CaloriesLT) " +
+            "AND (@CaloriesGTE is NULL or Calories = @CaloriesGTE) AND (@CaloriesLTE is NULL or Calories = @CaloriesLTE) AND (@CaloriesNOT is NULL or Calories = @CaloriesNOT) " +
+            "AND (@Protein is NULL or Protein = @Protein) AND (@ProteinGT is NULL or Protein = @ProteinGT) AND (@ProteinLT is NULL or Protein = @ProteinLT) AND (@ProteinGTE is NULL or Protein = @ProteinGTE) " +
+            "AND (@ProteinLTE is NULL or Protein = @ProteinLTE) AND (@ProteinNOT is NULL or Protein = @ProteinNOT) AND (@Fat is NULL or Fat = @Fat) AND (@FatGT is NULL or Fat = @FatGT) " +
+            "AND (@FatLT is NULL or Fat = @FatLT) AND (@FatGTE is NULL or Fat = @FatGTE) AND (@FatLTE is NULL or Fat = @FatLTE) AND (@FatNOT is NULL or Fat = @FatNOT) AND (@Sodium is NULL or Sodium = @Sodium) " +
+            "AND (@SodiumGT is NULL or Sodium = @SodiumGT) AND (@SodiumLT is NULL or Sodium = @SodiumLT) AND (@SodiumGTE is NULL or Sodium = @SodiumGTE) AND (@SodiumLTE is NULL or Sodium = @SodiumLTE) " +
+            "AND (@SodiumNot is NULL or Sodium = @SodiumNot) AND (@Sugars is NULL or Sugars = @Sugars) AND (@SugarsGT is NULL or SugarsGT = @SugarsGT) AND (@SugarsLT is NULL or Sugars = @SugarsLT) " +
+            "AND (@SugarsGTE is NULL or Sugars = @SugarsGTE) AND (@SugarsLTE is NULL or Sugars = @SugarsLTE) AND (@SugarsNot is NULL or Sugars = @SugarsNot) AND (@Potass is NULL or Potass = @Potass) " +
+            "AND (@PotassGT is NULL or Potass = @PotassGT) AND (@PotassLT is NULL or Potass = @PotassLT) AND (@PotassGTE is NULL or Potass = @PotassGTE) AND (@PotassLTE is NULL or Potass = @PotassLTE) " +
+            "AND (@PotassNot is NULL or Potass = @PotassNot) AND (@Vitamins is NULL or Vitamins = @Vitamins) AND (@VitaminsGT is NULL or Vitamins = @VitaminsGT) AND (@VitaminsLT is NULL or Vitamins = @VitaminsLT) " +
+            "AND (@VitaminsGTE is NULL or Vitamins = @VitaminsGTE) AND (@VitaminsLTE is NULL or Vitamins = @VitaminsLTE) AND (@VitaminsNot is NULL or Vitamins = @VitaminsNot) AND (@Shelf is NULL or Shelf = @Shelf) " +
+            "AND (@ShelfGT is NULL or Shelf = @ShelfGT) AND (@ShelfLT is NULL or Shelf = @ShelfLT) AND (@ShelfGTE is NULL or Shelf = @ShelfGTE) AND (@ShelfLTE is NULL or Shelf = @ShelfLTE) AND (@ShelfNot is NULL or Shelf = @ShelfNot) " +
+            "AND (@Weight is NULL or [Weight] = @Weight) AND (@WeightGT is NULL or [Weight] = @WeightGT) AND (@WeightLT is NULL or [Weight] = @WeightLT) AND (@WeightGTE is NULL or [Weight] = @WeightGTE) AND (@WeightLTE is NULL or [Weight] = @WeightLTE) " +
+            "AND (@WeightNot is NULL or [Weight] = @WeightNot) AND (@Cups is NULL or Cups = @Cups) AND (@CupsGT is NULL or Cups = @CupsGT) AND (@CupsLT is NULL or Cups = @CupsLT) AND (@CupsGTE is NULL or Cups = @CupsGTE) " +
+            "AND (@CupsLTE is NULL or Cups = @CupsLTE) AND (@CupsNot is NULL or Cups = @CupsNot) AND (@Rating is NULL or Rating = @Rating) AND (@RatingGT is NULL or Rating = @RatingGT) AND (@RatingLT is NULL or Rating = @RatingLT) " +
+            "AND (@RatingGTE is NULL or Rating = @RatingGTE) AND (@RatingLTE is NULL or Rating = @RatingLTE) AND (@RatingNOT is NULL or Rating = @RatingNOT) AND (@Fiber is NULL or Fiber = @Fiber) AND (@FiberGT is NULL or Fiber = @FiberGT) " +
+            "AND (@FiberLT is NULL or Fiber = @FiberLT) AND (@FiberGTE is NULL or Fiber = @FiberGTE) AND (@FiberLTE is NULL or Fiber = @FiberLTE) AND (@FiberNot is NULL or Fiber = @FiberNot) AND (@Carbo is NULL or Carbo = @Carbo) " +
+            "AND (@CarboGT is NULL or Carbo = @CarboGT) AND (@CarboLT is NULL or Carbo = @CarboLT) AND (@CarboGTE is NULL or Carbo = @CarboGTE) AND (@CarboLTE is NULL or Carbo = @CarboLTE) AND (@CarboNot is NULL or Carbo = @CarboNot) " +
+            "ORDER BY CASE " +
+            "WHEN @SortBY = 'Calories' then Calories " +
+            "WHEN @SortBY = 'Protein' then Protein " +
+            "WHEN @SortBY = 'Fat' then Fat " +
+            "WHEN @SortBY = 'Sodium' then Sodium " +
+            "WHEN @SortBY = 'Sugars' then Sugars " +
+            "WHEN @SortBY = 'Potass' then Potass " +
+            "WHEN @SortBY = 'Vitamins' then Vitamins " +
+            "WHEN @SortBY = 'Shelf' then Shelf " +
+            "WHEN @SortBY = 'Weight' then [Weight] " +
+            "WHEN @SortBY = 'Cups' then Cups " +
+            "WHEN @SortBY = 'Rating' then Rating " +
+            "WHEN @SortBY = 'Fiber' then Fiber " +
+            "WHEN @SortBY = 'Carbo' then Carbo " +
+            "WHEN @SortBY = 'Mfr' then Mfr " +
+            "WHEN @SortBY = 'Type' then [Type] " +
+            "WHEN @SortBY = 'Name' then [Name] " +
+            "END";
+
+        public IEnumerable<Cereal> GetBySorting(string result, string sortby)
         {
             List<Cereal> cList = new List<Cereal>();
-
-            var cQuery = "";
-
-            if (category == "Name")
-            {
-                cQuery = Get_By_Name;
-            }
-            else if (category == "Mfr")
-            {
-                cQuery = Get_By_Mfr;
-            }
-            else if (category == "Type")
-            {
-                cQuery = Get_By_Type;
-            }
-            else if (category == "Calories")
-            {
-                cQuery = Get_By_Calories;
-            }
-            else if (category == "Protein")
-            {
-                cQuery = Get_By_Protein;
-            }
-            else if (category == "Fat")
-            {
-                cQuery = Get_By_Fat;
-            }
-            else if (category == "Sodium")
-            {
-                cQuery = Get_By_Sodium;
-            }
-            else if (category == "Fiber")
-            {
-                cQuery = Get_By_Fiber;
-            }
-            else if (category == "Carbo")
-            {
-                cQuery = Get_By_Carbo;
-            }
-            else if (category == "Sugars")
-            {
-                cQuery = Get_By_Sugars;
-            }
-            else if (category == "Potass")
-            {
-                cQuery = Get_By_Potass;
-            }
-            else if (category == "Vitamins")
-            {
-                cQuery = Get_By_Vitamins;
-            }
-            else if (category == "Shelf")
-            {
-                cQuery = Get_By_Shelf;
-            }
-            else if (category == "Weight")
-            {
-                cQuery = Get_By_Weight;
-            }
-            else if (category == "Cups")
-            {
-                cQuery = Get_By_Cups;
-            }
-            else if (category == "Rating")
-            {
-                cQuery = Get_By_Rating;
-            }
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
 
-                using (SqlCommand cmd = new SqlCommand(cQuery, conn))
+                using (SqlCommand cmd = new SqlCommand(Get_By_Sorting, conn))
                 {
-                    //cmd.Parameters.AddWithValue("@category", $"{category}");
-                    cmd.Parameters.AddWithValue("@cate", $"{cate}");
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        Cereal cer = ReadNextElement(reader);
-                        cList.Add(cer);
-                    }
-                    reader.Close();
-                }
-            }
-
-            return cList;
-
-        }
-
-        private const String Get_By_Exact_Calories = "Select * from Cereal2 Where Calories = @cate";
-        private const String Get_By_Low_Or_Equal_Calories = "Select * from Cereal2 Where Calories >= @cate";
-        private const String Get_By_High_Or_Equal_Calories = "Select * from Cereal2 Where Calories <= @cate";
-        private const String Get_By_Low_Calories = "Select * from Cereal2 Where Calories > @cate";
-        private const String Get_By_High_Calories = "Select * from Cereal2 Where Calories < @cate";
-        private const String Get_By_Not_Equal_Calories = "Select * from Cereal2 Where Calories != @cate";
-       
-        private const String Get_By_Exact_Fat = "Select * from Cereal2 Where Fat = @cate";
-        private const String Get_By_Low_Or_Equal_Fat = "Select * from Cereal2 Where Fat >= @cate";
-        private const String Get_By_High_Or_Equal_Fat = "Select * from Cereal2 Where Fat <= @cate";
-        private const String Get_By_Low_Fat = "Select * from Cereal2 Where Fat > @cate";
-        private const String Get_By_High_Fat = "Select * from Cereal2 Where Fat < @cate";
-        private const String Get_By_Not_Equal_Fat = "Select * from Cereal2 Where Fat != @cate";
-        
-        private const String Get_By_Exact_Protein = "Select * from Cereal2 Where Protein = @cate";
-        private const String Get_By_Low_Or_Equal_Protein = "Select * from Cereal2 Where Protein >= @cate";
-        private const String Get_By_High_Or_Equal_Protein = "Select * from Cereal2 Where Protein <= @cate";
-        private const String Get_By_Low_Protein = "Select * from Cereal2 Where Protein > @cate";
-        private const String Get_By_High_Protein = "Select * from Cereal2 Where Protein < @cate";
-        private const String Get_By_Not_Equal_Protein = "Select * from Cereal2 Where Protein != @cate";
-        
-        private const String Get_By_Exact_Sodium = "Select * from Cereal2 Where Sodium = @cate";
-        private const String Get_By_Low_Or_Equal_Sodium = "Select * from Cereal2 Where Sodium >= @cate";
-        private const String Get_By_High_Or_Equal_Sodium = "Select * from Cereal2 Where Sodium <= @cate";
-        private const String Get_By_Low_Sodium = "Select * from Cereal2 Where Sodium > @cate";
-        private const String Get_By_High_Sodium = "Select * from Cereal2 Where Sodium < @cate";
-        private const String Get_By_Not_Equal_Sodium = "Select * from Cereal2 Where Sodium != @cate";
-
-        private const String Get_By_Exact_Fiber = "Select * from Cereal2 Where Fiber = @cate";
-        private const String Get_By_Low_Or_Equal_Fiber = "Select * from Cereal2 Where Fiber >= @cate";
-        private const String Get_By_High_Or_Equal_Fiber = "Select * from Cereal2 Where Fiber <= @cate";
-        private const String Get_By_Low_Fiber = "Select * from Cereal2 Where Fiber > @cate";
-        private const String Get_By_High_Fiber = "Select * from Cereal2 Where Fiber < @cate";
-        private const String Get_By_Not_Equal_Fiber = "Select * from Cereal2 Where Fiber != @cate";
-        
-        private const String Get_By_Exact_Carbo = "Select * from Cereal2 Where Carbo = @cate";
-        private const String Get_By_Low_Or_Equal_Carbo = "Select * from Cereal2 Where Carbo >= @cate";
-        private const String Get_By_High_Or_Equal_Carbo = "Select * from Cereal2 Where Carbo <= @cate";
-        private const String Get_By_Low_Carbo = "Select * from Cereal2 Where Carbo > @cate";
-        private const String Get_By_High_Carbo = "Select * from Cereal2 Where Carbo < @cate";
-        private const String Get_By_Not_Equal_Carbo = "Select * from Cereal2 Where Carbo != @cate";
-        
-        private const String Get_By_Exact_Sugars = "Select * from Cereal2 Where Sugars = @cate";
-        private const String Get_By_Low_Or_Equal_Sugars = "Select * from Cereal2 Where Sugars >= @cate";
-        private const String Get_By_High_Or_Equal_Sugars = "Select * from Cereal2 Where Sugars <= @cate";
-        private const String Get_By_Low_Sugars = "Select * from Cereal2 Where Sugars > @cate";
-        private const String Get_By_High_Sugars = "Select * from Cereal2 Where Sugars < @cate";
-        private const String Get_By_Not_Equal_Sugars = "Select * from Cereal2 Where Sugars != @cate";
-        
-        private const String Get_By_Exact_Potass = "Select * from Cereal2 Where Potass = @cate";
-        private const String Get_By_Low_Or_Equal_Potass = "Select * from Cereal2 Where Potass >= @cate";
-        private const String Get_By_High_Or_Equal_Potass = "Select * from Cereal2 Where Potass <= @cate";
-        private const String Get_By_Low_Potass = "Select * from Cereal2 Where Potass > @cate";
-        private const String Get_By_High_Potass = "Select * from Cereal2 Where Potass < @cate";
-        private const String Get_By_Not_Equal_Potass = "Select * from Cereal2 Where Potass != @cate";
-        
-        private const String Get_By_Exact_Vitamins = "Select * from Cereal2 Where Vitamins = @cate";
-        private const String Get_By_Low_Or_Equal_Vitamins = "Select * from Cereal2 Where Vitamins >= @cate";
-        private const String Get_By_High_Or_Equal_Vitamins = "Select * from Cereal2 Where Vitamins <= @cate";
-        private const String Get_By_Low_Vitamins = "Select * from Cereal2 Where Vitamins > @cate";
-        private const String Get_By_High_Vitamins = "Select * from Cereal2 Where Vitamins < @cate";
-        private const String Get_By_Not_Equal_Vitamins = "Select * from Cereal2 Where Vitamins != @cate";
-        
-        private const String Get_By_Exact_Shelf = "Select * from Cereal2 Where Shelf = @cate";
-        private const String Get_By_Low_Or_Equal_Shelf = "Select * from Cereal2 Where Shelf >= @cate";
-        private const String Get_By_High_Or_Equal_Shelf = "Select * from Cereal2 Where Shelf <= @cate";
-        private const String Get_By_Low_Shelf = "Select * from Cereal2 Where Shelf > @cate";
-        private const String Get_By_High_Shelf = "Select * from Cereal2 Where Shelf < @cate";
-        private const String Get_By_Not_Equal_Shelf = "Select * from Cereal2 Where Shelf != @cate";
-        
-        private const String Get_By_Exact_Weight = "Select * from Cereal2 Where Weight = @cate";
-        private const String Get_By_Low_Or_Equal_Weight = "Select * from Cereal2 Where Weight >= @cate";
-        private const String Get_By_High_Or_Equal_Weight = "Select * from Cereal2 Where Weight <= @cate";
-        private const String Get_By_Low_Weight = "Select * from Cereal2 Where Weight > @cate";
-        private const String Get_By_High_Weight = "Select * from Cereal2 Where Weight < @cate";
-        private const String Get_By_Not_Equal_Weight = "Select * from Cereal2 Where Weight != @cate";
-        
-        private const String Get_By_Exact_Cups = "Select * from Cereal2 Where Cups = @cate";
-        private const String Get_By_Low_Or_Equal_Cups = "Select * from Cereal2 Where Cups >= @cate";
-        private const String Get_By_High_Or_Equal_Cups = "Select * from Cereal2 Where Cups <= @cate";
-        private const String Get_By_Low_Cups = "Select * from Cereal2 Where Cups > @cate";
-        private const String Get_By_High_Cups = "Select * from Cereal2 Where Cups < @cate";
-        private const String Get_By_Not_Equal_Cups = "Select * from Cereal2 Where Cups != @cate";
-        
-        private const String Get_By_Exact_Rating = "Select * from Cereal2 Where Rating = @cate";
-        private const String Get_By_Low_Or_Equal_Rating = "Select * from Cereal2 Where Rating >= @cate";
-        private const String Get_By_High_Or_Equal_Rating = "Select * from Cereal2 Where Rating <= @cate";
-        private const String Get_By_Low_Rating = "Select * from Cereal2 Where Rating > @cate";
-        private const String Get_By_High_Rating = "Select * from Cereal2 Where Rating < @cate";
-        private const String Get_By_Not_Equal_Rating = "Select * from Cereal2 Where Rating != @cate";
-
-        public IEnumerable<Cereal> GetBySortingCategory(string category2, string sort, int cate2)
-        {
-            List<Cereal> cList = new List<Cereal>();
-
-            var cQuery = "";
-
-            if (category2 == "Calories")
-            {
-                if (sort == "=")
-                {
-                    cQuery = Get_By_Exact_Calories;
-                }
-                else if (sort == ">=")
-                {
-                    cQuery = Get_By_Low_Or_Equal_Calories;
-                }
-                else if (sort == "<=")
-                {
-                    cQuery = Get_By_High_Or_Equal_Calories;
-                }
-                else if (sort == ">")
-                {
-                    cQuery = Get_By_Low_Calories;
-                }
-                else if (sort == "<")
-                {
-                    cQuery = Get_By_High_Calories;
-                }
-                else if (sort == "!=")
-                {
-                    cQuery = Get_By_Not_Equal_Calories;
-                }
-            }
-            else if (category2 == "Fat")
-            {
-                if (sort == "=")
-                {
-                    cQuery = Get_By_Exact_Fat;
-                }
-                else if (sort == ">=")
-                {
-                    cQuery = Get_By_Low_Or_Equal_Fat;
-                }
-                else if (sort == "<=")
-                {
-                    cQuery = Get_By_High_Or_Equal_Fat;
-                }
-                else if (sort == ">")
-                {
-                    cQuery = Get_By_Low_Fat;
-                }
-                else if (sort == "<")
-                {
-                    cQuery = Get_By_High_Fat;
-                }
-                else if (sort == "!=")
-                {
-                    cQuery = Get_By_Not_Equal_Fat;
-                }
-            }
-            else if (category2 == "Protein")
-            {
-                if (sort == "=")
-                {
-                    cQuery = Get_By_Exact_Protein;
-                }
-                else if (sort == ">=")
-                {
-                    cQuery = Get_By_Low_Or_Equal_Protein;
-                }
-                else if (sort == "<=")
-                {
-                    cQuery = Get_By_High_Or_Equal_Protein;
-                }
-                else if (sort == ">")
-                {
-                    cQuery = Get_By_Low_Protein;
-                }
-                else if (sort == "<")
-                {
-                    cQuery = Get_By_High_Protein;
-                }
-                else if (sort == "!=")
-                {
-                    cQuery = Get_By_Not_Equal_Protein;
-                }
-            }
-            else if (category2 == "Sodium")
-            {
-                if (sort == "=")
-                {
-                    cQuery = Get_By_Exact_Sodium;
-                }
-                else if (sort == ">=")
-                {
-                    cQuery = Get_By_Low_Or_Equal_Sodium;
-                }
-                else if (sort == "<=")
-                {
-                    cQuery = Get_By_High_Or_Equal_Sodium;
-                }
-                else if (sort == ">")
-                {
-                    cQuery = Get_By_Low_Sodium;
-                }
-                else if (sort == "<")
-                {
-                    cQuery = Get_By_High_Sodium;
-                }
-                else if (sort == "!=")
-                {
-                    cQuery = Get_By_Not_Equal_Sodium;
-                }
-            }
-            else if (category2 == "Fiber")
-            {
-                if (sort == "=")
-                {
-                    cQuery = Get_By_Exact_Fiber;
-                }
-                else if (sort == ">=")
-                {
-                    cQuery = Get_By_Low_Or_Equal_Fiber;
-                }
-                else if (sort == "<=")
-                {
-                    cQuery = Get_By_High_Or_Equal_Fiber;
-                }
-                else if (sort == ">")
-                {
-                    cQuery = Get_By_Low_Fiber;
-                }
-                else if (sort == "<")
-                {
-                    cQuery = Get_By_High_Fiber;
-                }
-                else if (sort == "!=")
-                {
-                    cQuery = Get_By_Not_Equal_Fiber;
-                }
-            }
-            else if (category2 == "Carbo")
-            {
-                if (sort == "=")
-                {
-                    cQuery = Get_By_Exact_Carbo;
-                }
-                else if (sort == ">=")
-                {
-                    cQuery = Get_By_Low_Or_Equal_Carbo;
-                }
-                else if (sort == "<=")
-                {
-                    cQuery = Get_By_High_Or_Equal_Carbo;
-                }
-                else if (sort == ">")
-                {
-                    cQuery = Get_By_Low_Carbo;
-                }
-                else if (sort == "<")
-                {
-                    cQuery = Get_By_High_Carbo;
-                }
-                else if (sort == "!=")
-                {
-                    cQuery = Get_By_Not_Equal_Carbo;
-                }
-            }
-            else if (category2 == "Sugars")
-            {
-                if (sort == "=")
-                {
-                    cQuery = Get_By_Exact_Sugars;
-                }
-                else if (sort == ">=")
-                {
-                    cQuery = Get_By_Low_Or_Equal_Sugars;
-                }
-                else if (sort == "<=")
-                {
-                    cQuery = Get_By_High_Or_Equal_Sugars;
-                }
-                else if (sort == ">")
-                {
-                    cQuery = Get_By_Low_Sugars;
-                }
-                else if (sort == "<")
-                {
-                    cQuery = Get_By_High_Sugars;
-                }
-                else if (sort == "!=")
-                {
-                    cQuery = Get_By_Not_Equal_Sugars;
-                }
-            }
-            else if (category2 == "Potass")
-            {
-                if (sort == "=")
-                {
-                    cQuery = Get_By_Exact_Potass;
-                }
-                else if (sort == ">=")
-                {
-                    cQuery = Get_By_Low_Or_Equal_Potass;
-                }
-                else if (sort == "<=")
-                {
-                    cQuery = Get_By_High_Or_Equal_Potass;
-                }
-                else if (sort == ">")
-                {
-                    cQuery = Get_By_Low_Potass;
-                }
-                else if (sort == "<")
-                {
-                    cQuery = Get_By_High_Potass;
-                }
-                else if (sort == "!=")
-                {
-                    cQuery = Get_By_Not_Equal_Potass;
-                }
-            }
-            else if (category2 == "Vitamins")
-            {
-                if (sort == "=")
-                {
-                    cQuery = Get_By_Exact_Vitamins;
-                }
-                else if (sort == ">=")
-                {
-                    cQuery = Get_By_Low_Or_Equal_Vitamins;
-                }
-                else if (sort == "<=")
-                {
-                    cQuery = Get_By_High_Or_Equal_Vitamins;
-                }
-                else if (sort == ">")
-                {
-                    cQuery = Get_By_Low_Vitamins;
-                }
-                else if (sort == "<")
-                {
-                    cQuery = Get_By_High_Vitamins;
-                }
-                else if (sort == "!=")
-                {
-                    cQuery = Get_By_Not_Equal_Vitamins;
-                }
-            }
-            else if (category2 == "Shelf")
-            {
-                if (sort == "=")
-                {
-                    cQuery = Get_By_Exact_Shelf;
-                }
-                else if (sort == ">=")
-                {
-                    cQuery = Get_By_Low_Or_Equal_Shelf;
-                }
-                else if (sort == "<=")
-                {
-                    cQuery = Get_By_High_Or_Equal_Shelf;
-                }
-                else if (sort == ">")
-                {
-                    cQuery = Get_By_Low_Shelf;
-                }
-                else if (sort == "<")
-                {
-                    cQuery = Get_By_High_Shelf;
-                }
-                else if (sort == "!=")
-                {
-                    cQuery = Get_By_Not_Equal_Shelf;
-                }
-            }
-            else if (category2 == "Weight")
-            {
-                if (sort == "=")
-                {
-                    cQuery = Get_By_Exact_Weight;
-                }
-                else if (sort == ">=")
-                {
-                    cQuery = Get_By_Low_Or_Equal_Weight;
-                }
-                else if (sort == "<=")
-                {
-                    cQuery = Get_By_High_Or_Equal_Weight;
-                }
-                else if (sort == ">")
-                {
-                    cQuery = Get_By_Low_Weight;
-                }
-                else if (sort == "<")
-                {
-                    cQuery = Get_By_High_Weight;
-                }
-                else if (sort == "!=")
-                {
-                    cQuery = Get_By_Not_Equal_Weight;
-                }
-            }
-            else if (category2 == "Cups")
-            {
-                if (sort == "=")
-                {
-                    cQuery = Get_By_Exact_Cups;
-                }
-                else if (sort == ">=")
-                {
-                    cQuery = Get_By_Low_Or_Equal_Cups;
-                }
-                else if (sort == "<=")
-                {
-                    cQuery = Get_By_High_Or_Equal_Cups;
-                }
-                else if (sort == ">")
-                {
-                    cQuery = Get_By_Low_Cups;
-                }
-                else if (sort == "<")
-                {
-                    cQuery = Get_By_High_Cups;
-                }
-                else if (sort == "!=")
-                {
-                    cQuery = Get_By_Not_Equal_Cups;
-                }
-            }
-            else if (category2 == "Rating")
-            {
-                if (sort == "=")
-                {
-                    cQuery = Get_By_Exact_Rating;
-                }
-                else if (sort == ">=")
-                {
-                    cQuery = Get_By_Low_Or_Equal_Rating;
-                }
-                else if (sort == "<=")
-                {
-                    cQuery = Get_By_High_Or_Equal_Rating;
-                }
-                else if (sort == ">")
-                {
-                    cQuery = Get_By_Low_Rating;
-                }
-                else if (sort == "<")
-                {
-                    cQuery = Get_By_High_Rating;
-                }
-                else if (sort == "!=")
-                {
-                    cQuery = Get_By_Not_Equal_Rating;
-                }
-            }
-            
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-
-                using (SqlCommand cmd = new SqlCommand(cQuery, conn))
-                {
-                    //cmd.Parameters.AddWithValue("@category", $"{category}");
-                    cmd.Parameters.AddWithValue("@cate", $"{cate2}");
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        Cereal cer = ReadNextElement(reader);
-                        cList.Add(cer);
-                    }
-                    reader.Close();
-                }
-            }
-
-            return cList;
-
-        }
-
-        private const String Sugars_And_Fat = "Select * from Cereal2 where Sugars <= @Sugars AND Fat <= @Fat";
-
-        public IEnumerable<Cereal> GetBySugarsAndFat(int sugars, int fat)
-        {
-            List<Cereal> cList = new List<Cereal>();
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-
-                using (SqlCommand cmd = new SqlCommand(Sugars_And_Fat, conn))
-                {
-                    cmd.Parameters.AddWithValue("@Sugars", sugars);
-                    cmd.Parameters.AddWithValue("@Fat", fat);
+                    cmd.Parameters.AddWithValue("@SortBy", sortby);
+                    cmd.Parameters.AddWithValue("@???", result);
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {

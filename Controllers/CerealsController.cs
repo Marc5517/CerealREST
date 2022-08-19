@@ -43,54 +43,115 @@ namespace CerealREST.Controllers
                 return Ok(mc.GetById(id));
             }
             return NotFound($"Cereal id {id} not found, meaning the object doesn't exist.");
-
-
-            //try
-            //{
-            //    return Ok(mc.GetById(id));
-            //}
-            //catch (KeyNotFoundException knfe)
-            //{
-            //    return NotFound(knfe.Message);
-            //}
-        }
-
-        //// GET api/<CerealsController>/calories/120
-        //[HttpGet]
-        //[Route("calories/{calories}")]
-        //public IEnumerable<Cereal> GetByCalories(int calories)
-        //{
-        //    //List<Cereal> lCereals = Cereals.FindAll(c => c.Calories == calories);
-        //    //return lCereals;
-        //    ManageCereal mc = new ManageCereal();
-        //    return mc.GetByCalories(calories);
-        //}
-
-        //// GET api/<CerealsController>/type/D
-        //[HttpGet]
-        //[Route("type/{type}")]
-        //public IEnumerable<Cereal> GetByType(string type)
-        //{
-        //    //List<Cereal> lCereals = Cereals.FindAll(c => c.Type == type);
-        //    //return lCereals;
-        //    ManageCereal mc = new ManageCereal();
-        //    return mc.GetByType(type);
-        //}
-
-        [HttpGet]
-        [Route("{category}/{cate}")]
-        public IEnumerable<Cereal> GetByCategory(string category, string cate)
-        {
-            ManageCereal mc = new ManageCereal();
-            return mc.GetByCategory(category, cate);
         }
 
         [HttpGet]
-        [Route("{category2}/{sort}/{cate2}")]
-        public IEnumerable<Cereal> GetBySortingCategory(string category2, string sort, int cate2)
+        //[Route("{category}/{cate}")]
+        //public IEnumerable<Cereal> GetByCategory(string category, string cate)
+        //{
+        //    ManageCereal mc = new ManageCereal();
+        //    return mc.GetByCategory(category, cate);
+        //}
+
+        //[HttpGet]
+        //[Route("{category2}/{sort}/{cate2}")]
+        //public IEnumerable<Cereal> GetBySortingCategory(string category2, string sort, int cate2)
+        //{
+        //    ManageCereal mc = new ManageCereal();
+        //    return mc.GetBySortingCategory(category2, sort, cate2);
+        //}
+
+        [HttpGet]
+        [Route("Sorting/Result")]
+        public IEnumerable<Cereal> GetBySortingCategory(string? sortby, string? name, string? mfr, string? type, int? calories, int? caloriesgt, int? calorieslt, int? caloriesgte, int? calorieslte, int? caloriesNot,
+            int? protein, int? proteingt, int? proteinslt, int? proteingte, int? proteinlte, int? proteinNot, int? fat, int? fatgt, int? fatlt, int? fatgte, int? fatlte, int? fatNot,
+            int? sodium, int? sodiumgt, int? sodiumlt, int? sodiumgte, int? sodiumlte, int? sodiumNot, double? fiber, double? fibergt, double? fiberlt, double? fibergte, double? fiberlte, double? fiberNot,
+            double? carbo, double? carbogt, double? carbolt, double? carbogte, double? carbolte, double? carboNot, int? sugars, int? sugarsgt, int? sugarslt, int? sugarsgte, int? sugarslte, int? sugarsNot,
+            int? potass, int? potassgt, int? potasslt, int? potassgte, int? potasslte, int? potassNot, int? vitamins, int? vitaminsgt, int? vitaminslt, int? vitaminsgte, int? vitaminslte, int? vitaminsNot,
+            int? shelf, int? shelfgt, int? shelflt, int? shelfgte, int? shelflte, int? shelfNot, double? weight, double? weightgt, double? weightlt, double? weightgte, double? weightlte, double? weightNot,
+            double? cups, double? cupsgt, double? cupslt, double? cupsgte, double? cupslte, double? cupsNot, double? rating, double? ratinggt, double? ratinglt, double? ratinggte, double? ratinglte, double? ratingNot)
         {
+            var result = new CerealFilter
+            {
+                Name = name,
+                Mfr = mfr,
+                Type = type,
+                Calories = calories,
+                CaloriesGT = caloriesgt,
+                CaloriesLT = calorieslt,
+                CaloriesGTE = caloriesgte,
+                CaloriesLTE = calorieslte,
+                CaloriesNot = caloriesNot,
+                Fat = fat,
+                FatGT = fatgt,
+                FatLT = fatlt,
+                FatGTE = fatgte,
+                FatLTE = fatlte,
+                FatNot = fatNot,
+                Sodium = sodium,
+                SodiumGT = sodiumgt,
+                SodiumLT = sodiumlt,
+                SodiumGTE = sodiumgte,
+                SodiumLTE = sodiumlte,
+                SodiumNot = sodiumNot,
+                Fiber = fiber,
+                FiberGT = fibergt,
+                FiberLT = fiberlt,
+                FiberGTE = fibergte,
+                FiberLTE = fiberlte,
+                FiberNot = fiberNot,
+                Carbo = carbo,
+                CarboGT = carbogt,
+                CarboLT = carbolt,
+                CarboGTE = carbogte,
+                CarboLTE = carbolte,
+                CarboNot = carboNot,
+                Sugars = sugars,
+                SugarsGT = sugarsgt,
+                SugarsLT = sugarslt,
+                SugarsGTE = sugarsgte,
+                SugarsLTE = sugarslte,
+                SugarsNot = sugarsNot,
+                Potass = potass,
+                PotassGT = potassgt,
+                PotassLT = potasslt,
+                PotassGTE = potassgte,
+                PotassLTE = potasslte,
+                PotassNot = potassNot,
+                Vitamins = vitamins,
+                VitaminsGT = vitaminsgt,
+                VitaminsLT = vitaminslt,
+                VitaminsGTE = vitaminsgte,
+                VitaminsLTE = vitaminslte,
+                VitaminsNot = vitaminsNot,
+                Shelf = shelf,
+                ShelfGT = shelfgt,
+                ShelfLT = shelflt,
+                ShelfGTE = shelfgte,
+                ShelfLTE = shelflte,
+                ShelfNot = shelfNot,
+                Weight = weight,
+                WeightGT = weightgt,
+                WeightLT = weightlt,
+                WeightGTE = weightgte,
+                WeightLTE = weightlte,
+                WeightNot = weightNot,
+                Cups = cups,
+                CupsGT = cupsgt,
+                CupsLT = cupslt,
+                CupsGTE = cupsgte,
+                CupsLTE = cupslte,
+                CupsNot = cupsNot,
+                Rating = rating,
+                RatingGT = ratinggt,
+                RatingLT = ratinglt,
+                RatingGTE = ratinggte,
+                RatingLTE = ratinglte,
+                RatingNot = ratingNot
+            };
+
             ManageCereal mc = new ManageCereal();
-            return mc.GetBySortingCategory(category2, sort, cate2);
+            return mc.GetBySorting(sortby);
         }
 
         //[HttpGet]
