@@ -46,120 +46,126 @@ namespace CerealREST.Controllers
         }
 
         [HttpGet]
-        //[Route("{category}/{cate}")]
-        //public IEnumerable<Cereal> GetByCategory(string category, string cate)
-        //{
-        //    ManageCereal mc = new ManageCereal();
-        //    return mc.GetByCategory(category, cate);
-        //}
-
-        //[HttpGet]
-        //[Route("{category2}/{sort}/{cate2}")]
-        //public IEnumerable<Cereal> GetBySortingCategory(string category2, string sort, int cate2)
-        //{
-        //    ManageCereal mc = new ManageCereal();
-        //    return mc.GetBySortingCategory(category2, sort, cate2);
-        //}
+        [Route("{category}/{cate}")]
+        public IEnumerable<Cereal> GetByCategory(string category, string cate)
+        {
+            ManageCereal mc = new ManageCereal();
+            return mc.GetByCategory(category, cate);
+        }
 
         [HttpGet]
-        [Route("Sorting/Result")]
-        public IEnumerable<Cereal> GetBySortingCategory(string? sortby, string? name, string? mfr, string? type, int? calories, int? caloriesgt, int? calorieslt, int? caloriesgte, int? calorieslte, int? caloriesNot,
-            int? protein, int? proteingt, int? proteinslt, int? proteingte, int? proteinlte, int? proteinNot, int? fat, int? fatgt, int? fatlt, int? fatgte, int? fatlte, int? fatNot,
-            int? sodium, int? sodiumgt, int? sodiumlt, int? sodiumgte, int? sodiumlte, int? sodiumNot, double? fiber, double? fibergt, double? fiberlt, double? fibergte, double? fiberlte, double? fiberNot,
-            double? carbo, double? carbogt, double? carbolt, double? carbogte, double? carbolte, double? carboNot, int? sugars, int? sugarsgt, int? sugarslt, int? sugarsgte, int? sugarslte, int? sugarsNot,
-            int? potass, int? potassgt, int? potasslt, int? potassgte, int? potasslte, int? potassNot, int? vitamins, int? vitaminsgt, int? vitaminslt, int? vitaminsgte, int? vitaminslte, int? vitaminsNot,
-            int? shelf, int? shelfgt, int? shelflt, int? shelfgte, int? shelflte, int? shelfNot, double? weight, double? weightgt, double? weightlt, double? weightgte, double? weightlte, double? weightNot,
-            double? cups, double? cupsgt, double? cupslt, double? cupsgte, double? cupslte, double? cupsNot, double? rating, double? ratinggt, double? ratinglt, double? ratinggte, double? ratinglte, double? ratingNot)
+        [Route("{category2}/{sort}/{cate2}")]
+        public IEnumerable<Cereal> GetBySortingCategory(string category2, string sort, int cate2)
         {
-            var result = new CerealFilter
-            {
-                Name = name,
-                Mfr = mfr,
-                Type = type,
-                Calories = calories,
-                CaloriesGT = caloriesgt,
-                CaloriesLT = calorieslt,
-                CaloriesGTE = caloriesgte,
-                CaloriesLTE = calorieslte,
-                CaloriesNot = caloriesNot,
-                Fat = fat,
-                FatGT = fatgt,
-                FatLT = fatlt,
-                FatGTE = fatgte,
-                FatLTE = fatlte,
-                FatNot = fatNot,
-                Sodium = sodium,
-                SodiumGT = sodiumgt,
-                SodiumLT = sodiumlt,
-                SodiumGTE = sodiumgte,
-                SodiumLTE = sodiumlte,
-                SodiumNot = sodiumNot,
-                Fiber = fiber,
-                FiberGT = fibergt,
-                FiberLT = fiberlt,
-                FiberGTE = fibergte,
-                FiberLTE = fiberlte,
-                FiberNot = fiberNot,
-                Carbo = carbo,
-                CarboGT = carbogt,
-                CarboLT = carbolt,
-                CarboGTE = carbogte,
-                CarboLTE = carbolte,
-                CarboNot = carboNot,
-                Sugars = sugars,
-                SugarsGT = sugarsgt,
-                SugarsLT = sugarslt,
-                SugarsGTE = sugarsgte,
-                SugarsLTE = sugarslte,
-                SugarsNot = sugarsNot,
-                Potass = potass,
-                PotassGT = potassgt,
-                PotassLT = potasslt,
-                PotassGTE = potassgte,
-                PotassLTE = potasslte,
-                PotassNot = potassNot,
-                Vitamins = vitamins,
-                VitaminsGT = vitaminsgt,
-                VitaminsLT = vitaminslt,
-                VitaminsGTE = vitaminsgte,
-                VitaminsLTE = vitaminslte,
-                VitaminsNot = vitaminsNot,
-                Shelf = shelf,
-                ShelfGT = shelfgt,
-                ShelfLT = shelflt,
-                ShelfGTE = shelfgte,
-                ShelfLTE = shelflte,
-                ShelfNot = shelfNot,
-                Weight = weight,
-                WeightGT = weightgt,
-                WeightLT = weightlt,
-                WeightGTE = weightgte,
-                WeightLTE = weightlte,
-                WeightNot = weightNot,
-                Cups = cups,
-                CupsGT = cupsgt,
-                CupsLT = cupslt,
-                CupsGTE = cupsgte,
-                CupsLTE = cupslte,
-                CupsNot = cupsNot,
-                Rating = rating,
-                RatingGT = ratinggt,
-                RatingLT = ratinglt,
-                RatingGTE = ratinggte,
-                RatingLTE = ratinglte,
-                RatingNot = ratingNot
-            };
-
             ManageCereal mc = new ManageCereal();
-            return mc.GetBySorting(sortby);
+            return mc.GetBySortingCategory(category2, sort, cate2);
+        }
+
+        [HttpGet]
+        [Route("Category/Result")]
+        public IEnumerable<Cereal> GetByCategory(int? caloriesLT, string? type, int? fatGT)
+        {
+            ManageCereal mc = new ManageCereal();
+            return mc.GetBySort(caloriesLT, type, fatGT);
         }
 
         //[HttpGet]
-        //[Route("sugars/{sugars}/fat/{fat}")]
-        //public IEnumerable<Cereal> GetBySugarsAndFat(int sugars, int fat)
+        //[Route("Sorting/Result")]
+        //public IEnumerable<Cereal> GetBySortingCategory(string? sortby, string? name, string? mfr, string? type, int? calories, int? caloriesgt, int? calorieslt, int? caloriesgte, int? calorieslte, int? caloriesNot,
+        //    int? protein, int? proteingt, int? proteinlt, int? proteingte, int? proteinlte, int? proteinNot, int? fat, int? fatgt, int? fatlt, int? fatgte, int? fatlte, int? fatNot,
+        //    int? sodium, int? sodiumgt, int? sodiumlt, int? sodiumgte, int? sodiumlte, int? sodiumNot, double? fiber, double? fibergt, double? fiberlt, double? fibergte, double? fiberlte, double? fiberNot,
+        //    double? carbo, double? carbogt, double? carbolt, double? carbogte, double? carbolte, double? carboNot, int? sugars, int? sugarsgt, int? sugarslt, int? sugarsgte, int? sugarslte, int? sugarsNot,
+        //    int? potass, int? potassgt, int? potasslt, int? potassgte, int? potasslte, int? potassNot, int? vitamins, int? vitaminsgt, int? vitaminslt, int? vitaminsgte, int? vitaminslte, int? vitaminsNot,
+        //    int? shelf, int? shelfgt, int? shelflt, int? shelfgte, int? shelflte, int? shelfNot, double? weight, double? weightgt, double? weightlt, double? weightgte, double? weightlte, double? weightNot,
+        //    double? cups, double? cupsgt, double? cupslt, double? cupsgte, double? cupslte, double? cupsNot, double? rating, double? ratinggt, double? ratinglt, double? ratinggte, double? ratinglte, double? ratingNot)
         //{
+        //    var result = new CerealFilter
+        //    {
+        //        Name = name,
+        //        Mfr = mfr,
+        //        Type = type,
+        //        Calories = calories,
+        //        CaloriesGT = caloriesgt,
+        //        CaloriesLT = calorieslt,
+        //        CaloriesGTE = caloriesgte,
+        //        CaloriesLTE = calorieslte,
+        //        CaloriesNot = caloriesNot,
+        //        Protein = protein,
+        //        ProteinGT = proteingt,
+        //        ProteinLT = proteinlt,
+        //        ProteinGTE = proteingte,
+        //        ProteinLTE = proteinlte,
+        //        ProteinNot = proteinNot,
+        //        Fat = fat,
+        //        FatGT = fatgt,
+        //        FatLT = fatlt,
+        //        FatGTE = fatgte,
+        //        FatLTE = fatlte,
+        //        FatNot = fatNot,
+        //        Sodium = sodium,
+        //        SodiumGT = sodiumgt,
+        //        SodiumLT = sodiumlt,
+        //        SodiumGTE = sodiumgte,
+        //        SodiumLTE = sodiumlte,
+        //        SodiumNot = sodiumNot,
+        //        Fiber = fiber,
+        //        FiberGT = fibergt,
+        //        FiberLT = fiberlt,
+        //        FiberGTE = fibergte,
+        //        FiberLTE = fiberlte,
+        //        FiberNot = fiberNot,
+        //        Carbo = carbo,
+        //        CarboGT = carbogt,
+        //        CarboLT = carbolt,
+        //        CarboGTE = carbogte,
+        //        CarboLTE = carbolte,
+        //        CarboNot = carboNot,
+        //        Sugars = sugars,
+        //        SugarsGT = sugarsgt,
+        //        SugarsLT = sugarslt,
+        //        SugarsGTE = sugarsgte,
+        //        SugarsLTE = sugarslte,
+        //        SugarsNot = sugarsNot,
+        //        Potass = potass,
+        //        PotassGT = potassgt,
+        //        PotassLT = potasslt,
+        //        PotassGTE = potassgte,
+        //        PotassLTE = potasslte,
+        //        PotassNot = potassNot,
+        //        Vitamins = vitamins,
+        //        VitaminsGT = vitaminsgt,
+        //        VitaminsLT = vitaminslt,
+        //        VitaminsGTE = vitaminsgte,
+        //        VitaminsLTE = vitaminslte,
+        //        VitaminsNot = vitaminsNot,
+        //        Shelf = shelf,
+        //        ShelfGT = shelfgt,
+        //        ShelfLT = shelflt,
+        //        ShelfGTE = shelfgte,
+        //        ShelfLTE = shelflte,
+        //        ShelfNot = shelfNot,
+        //        Weight = weight,
+        //        WeightGT = weightgt,
+        //        WeightLT = weightlt,
+        //        WeightGTE = weightgte,
+        //        WeightLTE = weightlte,
+        //        WeightNot = weightNot,
+        //        Cups = cups,
+        //        CupsGT = cupsgt,
+        //        CupsLT = cupslt,
+        //        CupsGTE = cupsgte,
+        //        CupsLTE = cupslte,
+        //        CupsNot = cupsNot,
+        //        Rating = rating,
+        //        RatingGT = ratinggt,
+        //        RatingLT = ratinglt,
+        //        RatingGTE = ratinggte,
+        //        RatingLTE = ratinglte,
+        //        RatingNot = ratingNot
+        //    };
+
         //    ManageCereal mc = new ManageCereal();
-        //    return mc.GetBySugarsAndFat(sugars, fat);
+        //    return mc.GetBySorting(result, sortby);
         //}
 
         //// POST api/<CerealsController>
@@ -193,10 +199,21 @@ namespace CerealREST.Controllers
         }
 
         // PUT api/<CerealsController>/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
+        [HttpPut("{id}")]
+        [Authorize]
+        public IActionResult Update(int id, [FromBody] Cereal c)
+        {
+            ManageCereal mc = new ManageCereal();
+            try
+            {
+                mc.UpdateCereal(id, c);
+                return Ok();
+            }
+            catch (KeyNotFoundException knfe)
+            {
+                return NotFound(knfe.Message);
+            }
+        }
 
         // DELETE api/<CerealsController>/5
         [HttpDelete]
