@@ -55,7 +55,7 @@ namespace CerealREST.Controllers
 
         [HttpGet]
         [Route("{category2}/{sort}/{cate2}")]
-        public IEnumerable<Cereal> GetBySortingCategory(string category2, string sort, int cate2)
+        public IEnumerable<Cereal> GetBySortingCategory(string category2, string sort, string cate2)
         {
             ManageCereal mc = new ManageCereal();
             return mc.GetBySortingCategory(category2, sort, cate2);

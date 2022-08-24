@@ -251,7 +251,7 @@ namespace CerealREST.DBUtil
         private const String Get_By_High_Rating = "Select * from Cereal2 Where Rating < @cate";
         private const String Get_By_Not_Equal_Rating = "Select * from Cereal2 Where Rating != @cate";
 
-        public IEnumerable<Cereal> GetBySortingCategory(string category2, string sort, int cate2)
+        public IEnumerable<Cereal> GetBySortingCategory(string category2, string sort, string cate2)
         {
             List<Cereal> cList = new List<Cereal>();
 
