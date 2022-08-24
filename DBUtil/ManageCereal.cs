@@ -73,67 +73,67 @@ namespace CerealREST.DBUtil
 
             var cQuery = "";
 
-            if (category == "Name")
+            if (category == "Name" || category == "name")
             {
                 cQuery = Get_By_Name;
             }
-            else if (category == "Mfr")
+            else if (category == "Mfr" || category == "mfr")
             {
                 cQuery = Get_By_Mfr;
             }
-            else if (category == "Type")
+            else if (category == "Type" || category == "type")
             {
                 cQuery = Get_By_Type;
             }
-            else if (category == "Calories")
+            else if (category == "Calories" || category == "calories")
             {
                 cQuery = Get_By_Calories;
             }
-            else if (category == "Protein")
+            else if (category == "Protein" || category == "protein")
             {
                 cQuery = Get_By_Protein;
             }
-            else if (category == "Fat")
+            else if (category == "Fat" || category == "fat")
             {
                 cQuery = Get_By_Fat;
             }
-            else if (category == "Sodium")
+            else if (category == "Sodium" || category == "sodium")
             {
                 cQuery = Get_By_Sodium;
             }
-            else if (category == "Fiber")
+            else if (category == "Fiber" || category == "fiber")
             {
                 cQuery = Get_By_Fiber;
             }
-            else if (category == "Carbo")
+            else if (category == "Carbo" || category == "carbo")
             {
                 cQuery = Get_By_Carbo;
             }
-            else if (category == "Sugars")
+            else if (category == "Sugars" || category == "sugars")
             {
                 cQuery = Get_By_Sugars;
             }
-            else if (category == "Potass")
+            else if (category == "Potass" || category == "potass")
             {
                 cQuery = Get_By_Potass;
             }
-            else if (category == "Vitamins")
+            else if (category == "Vitamins" || category == "vitamins")
             {
                 cQuery = Get_By_Vitamins;
             }
-            else if (category == "Shelf")
+            else if (category == "Shelf" || category == "shelf")
             {
                 cQuery = Get_By_Shelf;
             }
-            else if (category == "Weight")
+            else if (category == "Weight" || category == "weight")
             {
                 cQuery = Get_By_Weight;
             }
-            else if (category == "Cups")
+            else if (category == "Cups" || category == "cups")
             {
                 cQuery = Get_By_Cups;
             }
-            else if (category == "Rating")
+            else if (category == "Rating" || category == "rating")
             {
                 cQuery = Get_By_Rating;
             }
@@ -257,7 +257,7 @@ namespace CerealREST.DBUtil
 
             var cQuery = "";
 
-            if (category2 == "Calories")
+            if (category2 == "Calories" || category2 == "calories")
             {
                 if (sort == "=")
                 {
@@ -284,7 +284,7 @@ namespace CerealREST.DBUtil
                     cQuery = Get_By_Not_Equal_Calories;
                 }
             }
-            else if (category2 == "Fat")
+            else if (category2 == "Fat" || category2 == "fat")
             {
                 if (sort == "=")
                 {
@@ -311,7 +311,7 @@ namespace CerealREST.DBUtil
                     cQuery = Get_By_Not_Equal_Fat;
                 }
             }
-            else if (category2 == "Protein")
+            else if (category2 == "Protein" || category2 == "protein")
             {
                 if (sort == "=")
                 {
@@ -338,7 +338,7 @@ namespace CerealREST.DBUtil
                     cQuery = Get_By_Not_Equal_Protein;
                 }
             }
-            else if (category2 == "Sodium")
+            else if (category2 == "Sodium" || category2 == "sodium")
             {
                 if (sort == "=")
                 {
@@ -365,7 +365,7 @@ namespace CerealREST.DBUtil
                     cQuery = Get_By_Not_Equal_Sodium;
                 }
             }
-            else if (category2 == "Fiber")
+            else if (category2 == "Fiber" || category2 == "fiber")
             {
                 if (sort == "=")
                 {
@@ -392,7 +392,7 @@ namespace CerealREST.DBUtil
                     cQuery = Get_By_Not_Equal_Fiber;
                 }
             }
-            else if (category2 == "Carbo")
+            else if (category2 == "Carbo" || category2 == "carbo")
             {
                 if (sort == "=")
                 {
@@ -419,7 +419,7 @@ namespace CerealREST.DBUtil
                     cQuery = Get_By_Not_Equal_Carbo;
                 }
             }
-            else if (category2 == "Sugars")
+            else if (category2 == "Sugars" || category2 == "sugars")
             {
                 if (sort == "=")
                 {
@@ -446,7 +446,7 @@ namespace CerealREST.DBUtil
                     cQuery = Get_By_Not_Equal_Sugars;
                 }
             }
-            else if (category2 == "Potass")
+            else if (category2 == "Potass" || category2 == "potass")
             {
                 if (sort == "=")
                 {
@@ -473,7 +473,7 @@ namespace CerealREST.DBUtil
                     cQuery = Get_By_Not_Equal_Potass;
                 }
             }
-            else if (category2 == "Vitamins")
+            else if (category2 == "Vitamins" || category2 == "vitamins")
             {
                 if (sort == "=")
                 {
@@ -500,7 +500,7 @@ namespace CerealREST.DBUtil
                     cQuery = Get_By_Not_Equal_Vitamins;
                 }
             }
-            else if (category2 == "Shelf")
+            else if (category2 == "Shelf" || category2 == "shelf")
             {
                 if (sort == "=")
                 {
@@ -527,7 +527,7 @@ namespace CerealREST.DBUtil
                     cQuery = Get_By_Not_Equal_Shelf;
                 }
             }
-            else if (category2 == "Weight")
+            else if (category2 == "Weight" || category2 == "weight")
             {
                 if (sort == "=")
                 {
@@ -554,7 +554,7 @@ namespace CerealREST.DBUtil
                     cQuery = Get_By_Not_Equal_Weight;
                 }
             }
-            else if (category2 == "Cups")
+            else if (category2 == "Cups" || category2 == "cups")
             {
                 if (sort == "=")
                 {
@@ -581,7 +581,7 @@ namespace CerealREST.DBUtil
                     cQuery = Get_By_Not_Equal_Cups;
                 }
             }
-            else if (category2 == "Rating")
+            else if (category2 == "Rating" || category2 == "rating")
             {
                 if (sort == "=")
                 {
