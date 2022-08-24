@@ -155,8 +155,14 @@ namespace CerealREST.DBUtil
                     reader.Close();
                 }
             }
-
-            return cList;
+            if (cList.Count == 0)
+            {
+                throw new KeyNotFoundException("No list came out. Value might be wrong.");
+            }
+            else
+            {
+                return cList;
+            }
 
         }
 
@@ -627,8 +633,14 @@ namespace CerealREST.DBUtil
                     reader.Close();
                 }
             }
-
-            return cList;
+            if (cList.Count == 0)
+            {
+                throw new KeyNotFoundException("No list came out. Value might be wrong.");
+            }
+            else
+            {
+                return cList;
+            }
 
         }
 
@@ -914,6 +926,10 @@ namespace CerealREST.DBUtil
                 cmd.Parameters.AddWithValue("@Id", id);
 
                 int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected != 1)
+                {
+                    throw new KeyNotFoundException("Id not found, cannnot delete a cereal if " + id + " does not exist.");
+                }
             }
 
             return cere;

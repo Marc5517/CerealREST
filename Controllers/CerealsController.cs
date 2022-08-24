@@ -47,18 +47,33 @@ namespace CerealREST.Controllers
 
         [HttpGet]
         [Route("{category}/{cate}")]
-        public IEnumerable<Cereal> GetByCategory(string category, string cate)
+        public IActionResult GetByCategory(string category, string cate)
         {
             ManageCereal mc = new ManageCereal();
-            return mc.GetByCategory(category, cate);
+            try
+            {
+                return Ok(mc.GetByCategory(category, cate));
+            }
+            catch (KeyNotFoundException knfe)
+            {
+                return NotFound(knfe.Message);
+            }
+
         }
 
         [HttpGet]
         [Route("{category2}/{sort}/{cate2}")]
-        public IEnumerable<Cereal> GetBySortingCategory(string category2, string sort, string cate2)
+        public IActionResult GetBySortingCategory(string category2, string sort, string cate2)
         {
             ManageCereal mc = new ManageCereal();
-            return mc.GetBySortingCategory(category2, sort, cate2);
+            try
+            {
+                return Ok(mc.GetBySortingCategory(category2, sort, cate2));
+            }
+            catch (KeyNotFoundException knfe)
+            {
+                return NotFound(knfe.Message);
+            }
         }
 
         [HttpGet]
