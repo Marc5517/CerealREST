@@ -644,34 +644,7 @@ namespace CerealREST.DBUtil
 
         }
 
-        //private const String Sugars_And_Fat = "Select * from Cereal2 where Sugars <= @Sugars AND Fat <= @Fat";
-
-        //public IEnumerable<Cereal> GetBySugarsAndFat(int sugars, int fat)
-        //{
-        //    List<Cereal> cList = new List<Cereal>();
-
-        //    using (SqlConnection conn = new SqlConnection(connectionString))
-        //    {
-        //        conn.Open();
-
-        //        using (SqlCommand cmd = new SqlCommand(Sugars_And_Fat, conn))
-        //        {
-        //            cmd.Parameters.AddWithValue("@Sugars", sugars);
-        //            cmd.Parameters.AddWithValue("@Fat", fat);
-        //            SqlDataReader reader = cmd.ExecuteReader();
-        //            while (reader.Read())
-        //            {
-        //                Cereal cer = ReadNextElement(reader);
-        //                cList.Add(cer);
-        //            }
-        //            reader.Close();
-        //        }
-        //    }
-
-        //    return cList;
-
-        //}
-
+        
         private const String Get_By_Sort = "Select * from Cereal2 Where (@Calories IS NULL or Calories < @Calories) AND (@Type IS NULL or [Type] = @Type) AND (@FatGT IS NULL or Fat > @FatGT)";
 
         public IEnumerable<Cereal> GetBySort(int? caloriesLT, string? type, int? fatGT)
@@ -702,145 +675,145 @@ namespace CerealREST.DBUtil
         }
 
 
-        private const String Get_By_Sorting = "Select * from Cereal2 Where " +
-            "(@Name is NULL or [Name] = @Name) AND (@Mfr is NULL or Mfr = @Mfr) AND (@Type is NULL or [Type] = @Type) " +
-            "AND (@Calories is NULL or Calories = @Calories) AND (@CaloriesGt is NULL or Calories > @CaloriesGt) AND (@CaloriesLT is NULL or Calories < @CaloriesLT) AND (@CaloriesGTE is NULL or Calories >= @CaloriesGTE) AND (@CaloriesLTE is NULL or Calories <= @CaloriesLTE) AND (@CaloriesNOT is NULL or Calories != @CaloriesNOT) " +
-            "AND (@Protein is NULL or Protein = @Protein) AND (@ProteinGT is NULL or Protein > @ProteinGT) AND (@ProteinLT is NULL or Protein < @ProteinLT) AND (@ProteinGTE is NULL or Protein >= @ProteinGTE) AND (@ProteinLTE is NULL or Protein <= @ProteinLTE) AND (@ProteinNOT is NULL or Protein != @ProteinNOT) " +
-            "AND (@Fat is NULL or Fat = @Fat) AND (@FatGT is NULL or Fat > @FatGT) AND (@FatLT is NULL or Fat < @FatLT) AND (@FatGTE is NULL or Fat >= @FatGTE) AND (@FatLTE is NULL or Fat <= @FatLTE) AND (@FatNOT is NULL or Fat != @FatNOT) " +
-            "AND (@Sodium is NULL or Sodium = @Sodium) AND (@SodiumGT is NULL or Sodium > @SodiumGT) AND (@SodiumLT is NULL or Sodium < @SodiumLT) AND (@SodiumGTE is NULL or Sodium >= @SodiumGTE) AND (@SodiumLTE is NULL or Sodium <= @SodiumLTE) AND (@SodiumNot is NULL or Sodium != @SodiumNot) " +
-            "AND (@Sugars is NULL or Sugars = @Sugars) AND (@SugarsGT is NULL or Sugars > @SugarsGT) AND (@SugarsLT is NULL or Sugars < @SugarsLT) AND (@SugarsGTE is NULL or Sugars >= @SugarsGTE) AND (@SugarsLTE is NULL or Sugars <= @SugarsLTE) AND (@SugarsNot is NULL or Sugars != @SugarsNot) " +
-            "AND (@Potass is NULL or Potass = @Potass) AND (@PotassGT is NULL or Potass > @PotassGT) AND (@PotassLT is NULL or Potass < @PotassLT) AND (@PotassGTE is NULL or Potass >= @PotassGTE) AND (@PotassLTE is NULL or Potass <= @PotassLTE) AND (@PotassNot is NULL or Potass != @PotassNot) " +
-            "AND (@Vitamins is NULL or Vitamins = @Vitamins) AND (@VitaminsGT is NULL or Vitamins > @VitaminsGT) AND (@VitaminsLT is NULL or Vitamins < @VitaminsLT) AND (@VitaminsGTE is NULL or Vitamins >= @VitaminsGTE) AND (@VitaminsLTE is NULL or Vitamins <= @VitaminsLTE) AND (@VitaminsNot is NULL or Vitamins != @VitaminsNot) " +
-            "AND (@Shelf is NULL or Shelf = @Shelf) AND (@ShelfGT is NULL or Shelf > @ShelfGT) AND (@ShelfLT is NULL or Shelf < @ShelfLT) AND (@ShelfGTE is NULL or Shelf >= @ShelfGTE) AND (@ShelfLTE is NULL or Shelf <= @ShelfLTE) AND (@ShelfNot is NULL or Shelf != @ShelfNot) " +
-            "AND (@Weight is NULL or [Weight] = @Weight) AND (@WeightGT is NULL or [Weight] > @WeightGT) AND (@WeightLT is NULL or [Weight] < @WeightLT) AND (@WeightGTE is NULL or [Weight] >= @WeightGTE) AND (@WeightLTE is NULL or [Weight] <= @WeightLTE) AND (@WeightNot is NULL or [Weight] != @WeightNot) " +
-            "AND (@Cups is NULL or Cups = @Cups) AND (@CupsGT is NULL or Cups > @CupsGT) AND (@CupsLT is NULL or Cups < @CupsLT) AND (@CupsGTE is NULL or Cups >= @CupsGTE) AND (@CupsLTE is NULL or Cups <= @CupsLTE) AND (@CupsNot is NULL or Cups != @CupsNot) " +
-            "AND (@Rating is NULL or Rating = @Rating) AND (@RatingGT is NULL or Rating > @RatingGT) AND (@RatingLT is NULL or Rating < @RatingLT) AND (@RatingGTE is NULL or Rating >= @RatingGTE) AND (@RatingLTE is NULL or Rating <= @RatingLTE) AND (@RatingNOT is NULL or Rating != @RatingNOT) " +
-            "AND (@Fiber is NULL or Fiber = @Fiber) AND (@FiberGT is NULL or Fiber > @FiberGT) AND (@FiberLT is NULL or Fiber < @FiberLT) AND (@FiberGTE is NULL or Fiber >= @FiberGTE) AND (@FiberLTE is NULL or Fiber <= @FiberLTE) AND (@FiberNot is NULL or Fiber != @FiberNot) " +
-            "AND (@Carbo is NULL or Carbo = @Carbo) AND (@CarboGT is NULL or Carbo > @CarboGT) AND (@CarboLT is NULL or Carbo < @CarboLT) AND (@CarboGTE is NULL or Carbo >= @CarboGTE) AND (@CarboLTE is NULL or Carbo <= @CarboLTE) AND (@CarboNot is NULL or Carbo != @CarboNot) " +
-            "ORDER BY CASE " +
-            "WHEN @SortBY = 'Calories' then Calories " +
-            "WHEN @SortBY = 'Protein' then Protein " +
-            "WHEN @SortBY = 'Fat' then Fat " +
-            "WHEN @SortBY = 'Sodium' then Sodium " +
-            "WHEN @SortBY = 'Sugars' then Sugars " +
-            "WHEN @SortBY = 'Potass' then Potass " +
-            "WHEN @SortBY = 'Vitamins' then Vitamins " +
-            "WHEN @SortBY = 'Shelf' then Shelf " +
-            "WHEN @SortBY = 'Weight' then [Weight] " +
-            "WHEN @SortBY = 'Cups' then Cups " +
-            "WHEN @SortBY = 'Rating' then Rating " +
-            "WHEN @SortBY = 'Fiber' then Fiber " +
-            "WHEN @SortBY = 'Carbo' then Carbo " +
-            "WHEN @SortBY = 'Mfr' then Mfr " +
-            "WHEN @SortBY = 'Type' then [Type] " +
-            "WHEN @SortBY = 'Name' then [Name] " +
-            "END";
+        //private const String Get_By_Sorting = "Select * from Cereal2 Where " +
+        //    "(@Name is NULL or [Name] = @Name) AND (@Mfr is NULL or Mfr = @Mfr) AND (@Type is NULL or [Type] = @Type) " +
+        //    "AND (@Calories is NULL or Calories = @Calories) AND (@CaloriesGt is NULL or Calories > @CaloriesGt) AND (@CaloriesLT is NULL or Calories < @CaloriesLT) AND (@CaloriesGTE is NULL or Calories >= @CaloriesGTE) AND (@CaloriesLTE is NULL or Calories <= @CaloriesLTE) AND (@CaloriesNOT is NULL or Calories != @CaloriesNOT) " +
+        //    "AND (@Protein is NULL or Protein = @Protein) AND (@ProteinGT is NULL or Protein > @ProteinGT) AND (@ProteinLT is NULL or Protein < @ProteinLT) AND (@ProteinGTE is NULL or Protein >= @ProteinGTE) AND (@ProteinLTE is NULL or Protein <= @ProteinLTE) AND (@ProteinNOT is NULL or Protein != @ProteinNOT) " +
+        //    "AND (@Fat is NULL or Fat = @Fat) AND (@FatGT is NULL or Fat > @FatGT) AND (@FatLT is NULL or Fat < @FatLT) AND (@FatGTE is NULL or Fat >= @FatGTE) AND (@FatLTE is NULL or Fat <= @FatLTE) AND (@FatNOT is NULL or Fat != @FatNOT) " +
+        //    "AND (@Sodium is NULL or Sodium = @Sodium) AND (@SodiumGT is NULL or Sodium > @SodiumGT) AND (@SodiumLT is NULL or Sodium < @SodiumLT) AND (@SodiumGTE is NULL or Sodium >= @SodiumGTE) AND (@SodiumLTE is NULL or Sodium <= @SodiumLTE) AND (@SodiumNot is NULL or Sodium != @SodiumNot) " +
+        //    "AND (@Sugars is NULL or Sugars = @Sugars) AND (@SugarsGT is NULL or Sugars > @SugarsGT) AND (@SugarsLT is NULL or Sugars < @SugarsLT) AND (@SugarsGTE is NULL or Sugars >= @SugarsGTE) AND (@SugarsLTE is NULL or Sugars <= @SugarsLTE) AND (@SugarsNot is NULL or Sugars != @SugarsNot) " +
+        //    "AND (@Potass is NULL or Potass = @Potass) AND (@PotassGT is NULL or Potass > @PotassGT) AND (@PotassLT is NULL or Potass < @PotassLT) AND (@PotassGTE is NULL or Potass >= @PotassGTE) AND (@PotassLTE is NULL or Potass <= @PotassLTE) AND (@PotassNot is NULL or Potass != @PotassNot) " +
+        //    "AND (@Vitamins is NULL or Vitamins = @Vitamins) AND (@VitaminsGT is NULL or Vitamins > @VitaminsGT) AND (@VitaminsLT is NULL or Vitamins < @VitaminsLT) AND (@VitaminsGTE is NULL or Vitamins >= @VitaminsGTE) AND (@VitaminsLTE is NULL or Vitamins <= @VitaminsLTE) AND (@VitaminsNot is NULL or Vitamins != @VitaminsNot) " +
+        //    "AND (@Shelf is NULL or Shelf = @Shelf) AND (@ShelfGT is NULL or Shelf > @ShelfGT) AND (@ShelfLT is NULL or Shelf < @ShelfLT) AND (@ShelfGTE is NULL or Shelf >= @ShelfGTE) AND (@ShelfLTE is NULL or Shelf <= @ShelfLTE) AND (@ShelfNot is NULL or Shelf != @ShelfNot) " +
+        //    "AND (@Weight is NULL or [Weight] = @Weight) AND (@WeightGT is NULL or [Weight] > @WeightGT) AND (@WeightLT is NULL or [Weight] < @WeightLT) AND (@WeightGTE is NULL or [Weight] >= @WeightGTE) AND (@WeightLTE is NULL or [Weight] <= @WeightLTE) AND (@WeightNot is NULL or [Weight] != @WeightNot) " +
+        //    "AND (@Cups is NULL or Cups = @Cups) AND (@CupsGT is NULL or Cups > @CupsGT) AND (@CupsLT is NULL or Cups < @CupsLT) AND (@CupsGTE is NULL or Cups >= @CupsGTE) AND (@CupsLTE is NULL or Cups <= @CupsLTE) AND (@CupsNot is NULL or Cups != @CupsNot) " +
+        //    "AND (@Rating is NULL or Rating = @Rating) AND (@RatingGT is NULL or Rating > @RatingGT) AND (@RatingLT is NULL or Rating < @RatingLT) AND (@RatingGTE is NULL or Rating >= @RatingGTE) AND (@RatingLTE is NULL or Rating <= @RatingLTE) AND (@RatingNOT is NULL or Rating != @RatingNOT) " +
+        //    "AND (@Fiber is NULL or Fiber = @Fiber) AND (@FiberGT is NULL or Fiber > @FiberGT) AND (@FiberLT is NULL or Fiber < @FiberLT) AND (@FiberGTE is NULL or Fiber >= @FiberGTE) AND (@FiberLTE is NULL or Fiber <= @FiberLTE) AND (@FiberNot is NULL or Fiber != @FiberNot) " +
+        //    "AND (@Carbo is NULL or Carbo = @Carbo) AND (@CarboGT is NULL or Carbo > @CarboGT) AND (@CarboLT is NULL or Carbo < @CarboLT) AND (@CarboGTE is NULL or Carbo >= @CarboGTE) AND (@CarboLTE is NULL or Carbo <= @CarboLTE) AND (@CarboNot is NULL or Carbo != @CarboNot) " +
+        //    "ORDER BY CASE " +
+        //    "WHEN @SortBY = 'Calories' then Calories " +
+        //    "WHEN @SortBY = 'Protein' then Protein " +
+        //    "WHEN @SortBY = 'Fat' then Fat " +
+        //    "WHEN @SortBY = 'Sodium' then Sodium " +
+        //    "WHEN @SortBY = 'Sugars' then Sugars " +
+        //    "WHEN @SortBY = 'Potass' then Potass " +
+        //    "WHEN @SortBY = 'Vitamins' then Vitamins " +
+        //    "WHEN @SortBY = 'Shelf' then Shelf " +
+        //    "WHEN @SortBY = 'Weight' then [Weight] " +
+        //    "WHEN @SortBY = 'Cups' then Cups " +
+        //    "WHEN @SortBY = 'Rating' then Rating " +
+        //    "WHEN @SortBY = 'Fiber' then Fiber " +
+        //    "WHEN @SortBY = 'Carbo' then Carbo " +
+        //    "WHEN @SortBY = 'Mfr' then Mfr " +
+        //    "WHEN @SortBY = 'Type' then [Type] " +
+        //    "WHEN @SortBY = 'Name' then [Name] " +
+        //    "END";
 
-        public IEnumerable<Cereal> GetBySorting(CerealFilter result, string? sortby)
-        {
-            List<Cereal> cList = new List<Cereal>();
+        //public IEnumerable<Cereal> GetBySorting(CerealFilter result, string? sortby)
+        //{
+        //    List<Cereal> cList = new List<Cereal>();
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
+        //    using (SqlConnection conn = new SqlConnection(connectionString))
+        //    {
+        //        conn.Open();
 
-                using (SqlCommand cmd = new SqlCommand(Get_By_Sorting, conn))
-                {
-                    cmd.Parameters.AddWithValue("@SortBy", $"{sortby}");
-                    cmd.Parameters.AddWithValue("@Name", $"{result.Name}");
-                    cmd.Parameters.AddWithValue("@Mfr", $"{result.Mfr}");
-                    cmd.Parameters.AddWithValue("@Type", $"{result.Type}");
-                    cmd.Parameters.AddWithValue("@Calories", $"{result.Calories}");
-                    cmd.Parameters.AddWithValue("@CaloriesGT", $"{result.CaloriesGT}");
-                    cmd.Parameters.AddWithValue("@CaloriesGTE", $"{result.CaloriesGTE}");
-                    cmd.Parameters.AddWithValue("@CaloriesLT", $"{result.CaloriesLT}");
-                    cmd.Parameters.AddWithValue("@CaloriesLTE", $"{result.CaloriesLTE}");
-                    cmd.Parameters.AddWithValue("@CaloriesNot", $"{result.CaloriesNot}");
-                    cmd.Parameters.AddWithValue("@Protein", $"{result.Protein}");
-                    cmd.Parameters.AddWithValue("@ProteinGT", $"{result.ProteinGT}");
-                    cmd.Parameters.AddWithValue("@ProteinGTE", $"{result.ProteinGTE}");
-                    cmd.Parameters.AddWithValue("@ProteinLT", $"{result.ProteinLT}");
-                    cmd.Parameters.AddWithValue("@ProteinLTE", $"{result.ProteinLTE}");
-                    cmd.Parameters.AddWithValue("@ProteinNot", $"{result.ProteinNot}");
-                    cmd.Parameters.AddWithValue("@Fat", $"{result.Fat}");
-                    cmd.Parameters.AddWithValue("@FatGT", $"{result.FatGT}");
-                    cmd.Parameters.AddWithValue("@FatGTE", $"{result.FatGTE}");
-                    cmd.Parameters.AddWithValue("@FatLT", $"{result.FatLT}");
-                    cmd.Parameters.AddWithValue("@FatLTE", $"{result.FatLTE}");
-                    cmd.Parameters.AddWithValue("@FatNot", $"{result.FatNot}");
-                    cmd.Parameters.AddWithValue("@Sodium", $"{result.Sodium}");
-                    cmd.Parameters.AddWithValue("@SodiumGT", $"{result.SodiumGT}");
-                    cmd.Parameters.AddWithValue("@SodiumGTE", $"{result.SodiumGTE}");
-                    cmd.Parameters.AddWithValue("@SodiumLT", $"{result.SodiumLT}");
-                    cmd.Parameters.AddWithValue("@SodiumLTE", $"{result.SodiumLTE}");
-                    cmd.Parameters.AddWithValue("@SodiumNot", $"{result.SodiumNot}");
-                    cmd.Parameters.AddWithValue("@Sugars", $"{result.Sugars}");
-                    cmd.Parameters.AddWithValue("@SugarsGT", $"{result.SugarsGT}");
-                    cmd.Parameters.AddWithValue("@SugarsGTE", $"{result.SugarsGTE}");
-                    cmd.Parameters.AddWithValue("@SugarsLT", $"{result.SugarsLT}");
-                    cmd.Parameters.AddWithValue("@SugarsLTE", $"{result.SugarsLTE}");
-                    cmd.Parameters.AddWithValue("@SugarsNot", $"{result.SugarsNot}");
-                    cmd.Parameters.AddWithValue("@Potass", $"{result.Potass}");
-                    cmd.Parameters.AddWithValue("@PotassGT", $"{result.PotassGT}");
-                    cmd.Parameters.AddWithValue("@PotassGTE", $"{result.PotassGTE}");
-                    cmd.Parameters.AddWithValue("@PotassLT", $"{result.PotassLT}");
-                    cmd.Parameters.AddWithValue("@PotassLTE", $"{result.PotassLTE}");
-                    cmd.Parameters.AddWithValue("@PotassNot", $"{result.PotassNot}");
-                    cmd.Parameters.AddWithValue("@Vitamins", $"{result.Vitamins}");
-                    cmd.Parameters.AddWithValue("@VitaminsGT", $"{result.VitaminsGT}");
-                    cmd.Parameters.AddWithValue("@VitaminsGTE", $"{result.VitaminsGTE}");
-                    cmd.Parameters.AddWithValue("@VitaminsLT", $"{result.VitaminsLT}");
-                    cmd.Parameters.AddWithValue("@VitaminsLTE", $"{result.VitaminsLTE}");
-                    cmd.Parameters.AddWithValue("@VitaminsNot", $"{result.VitaminsNot}");
-                    cmd.Parameters.AddWithValue("@Shelf", $"{result.Shelf}");
-                    cmd.Parameters.AddWithValue("@ShelfGT", $"{result.ShelfGT}");
-                    cmd.Parameters.AddWithValue("@ShelfGTE", $"{result.ShelfGTE}");
-                    cmd.Parameters.AddWithValue("@ShelfLT", $"{result.ShelfLT}");
-                    cmd.Parameters.AddWithValue("@ShelfLTE", $"{result.ShelfLTE}");
-                    cmd.Parameters.AddWithValue("@ShelfNot", $"{result.ShelfNot}");
-                    cmd.Parameters.AddWithValue("@Weight", $"{result.Weight}");
-                    cmd.Parameters.AddWithValue("@WeightGT", $"{result.WeightGT}");
-                    cmd.Parameters.AddWithValue("@WeightGTE", $"{result.WeightGTE}");
-                    cmd.Parameters.AddWithValue("@WeightLT", $"{result.WeightLT}");
-                    cmd.Parameters.AddWithValue("@WeightLTE", $"{result.WeightLTE}");
-                    cmd.Parameters.AddWithValue("@WeightNot", $"{result.WeightNot}");
-                    cmd.Parameters.AddWithValue("@Cups", $"{result.Cups}");
-                    cmd.Parameters.AddWithValue("@CupsGT", $"{result.CupsGT}");
-                    cmd.Parameters.AddWithValue("@CupsGTE", $"{result.CupsGTE}");
-                    cmd.Parameters.AddWithValue("@CupsLT", $"{result.CupsLT}");
-                    cmd.Parameters.AddWithValue("@CupsLTE", $"{result.CupsLTE}");
-                    cmd.Parameters.AddWithValue("@CupsNot", $"{result.CupsNot}");
-                    cmd.Parameters.AddWithValue("@Rating", $"{result.Rating}");
-                    cmd.Parameters.AddWithValue("@RatingGT", $"{result.RatingGT}");
-                    cmd.Parameters.AddWithValue("@RatingGTE", $"{result.RatingGTE}");
-                    cmd.Parameters.AddWithValue("@RatingLT", $"{result.RatingLT}");
-                    cmd.Parameters.AddWithValue("@RatingLTE", $"{result.RatingLTE}");
-                    cmd.Parameters.AddWithValue("@RatingNot", $"{result.RatingNot}");
-                    cmd.Parameters.AddWithValue("@Fiber", $"{result.Fiber}");
-                    cmd.Parameters.AddWithValue("@FiberGT", $"{result.FiberGT}");
-                    cmd.Parameters.AddWithValue("@FiberGTE", $"{result.FiberGTE}");
-                    cmd.Parameters.AddWithValue("@FiberLT", $"{result.FiberLT}");
-                    cmd.Parameters.AddWithValue("@FiberLTE", $"{result.FiberLTE}");
-                    cmd.Parameters.AddWithValue("@FiberNot", $"{result.FiberNot}");
-                    cmd.Parameters.AddWithValue("@Carbo", $"{result.Carbo}");
-                    cmd.Parameters.AddWithValue("@CarboGT", $"{result.CarboGT}");
-                    cmd.Parameters.AddWithValue("@CarboGTE", $"{result.CarboGTE}");
-                    cmd.Parameters.AddWithValue("@CarboLT", $"{result.CarboLT}");
-                    cmd.Parameters.AddWithValue("@CarboLTE", $"{result.CarboLTE}");
-                    cmd.Parameters.AddWithValue("@CarboNot", $"{result.CarboNot}");
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        Cereal cer = ReadNextElement(reader);
-                        cList.Add(cer);
-                    }
-                    reader.Close();
-                }
-            }
+        //        using (SqlCommand cmd = new SqlCommand(Get_By_Sorting, conn))
+        //        {
+        //            cmd.Parameters.AddWithValue("@SortBy", $"{sortby}");
+        //            cmd.Parameters.AddWithValue("@Name", $"{result.Name}");
+        //            cmd.Parameters.AddWithValue("@Mfr", $"{result.Mfr}");
+        //            cmd.Parameters.AddWithValue("@Type", $"{result.Type}");
+        //            cmd.Parameters.AddWithValue("@Calories", $"{result.Calories}");
+        //            cmd.Parameters.AddWithValue("@CaloriesGT", $"{result.CaloriesGT}");
+        //            cmd.Parameters.AddWithValue("@CaloriesGTE", $"{result.CaloriesGTE}");
+        //            cmd.Parameters.AddWithValue("@CaloriesLT", $"{result.CaloriesLT}");
+        //            cmd.Parameters.AddWithValue("@CaloriesLTE", $"{result.CaloriesLTE}");
+        //            cmd.Parameters.AddWithValue("@CaloriesNot", $"{result.CaloriesNot}");
+        //            cmd.Parameters.AddWithValue("@Protein", $"{result.Protein}");
+        //            cmd.Parameters.AddWithValue("@ProteinGT", $"{result.ProteinGT}");
+        //            cmd.Parameters.AddWithValue("@ProteinGTE", $"{result.ProteinGTE}");
+        //            cmd.Parameters.AddWithValue("@ProteinLT", $"{result.ProteinLT}");
+        //            cmd.Parameters.AddWithValue("@ProteinLTE", $"{result.ProteinLTE}");
+        //            cmd.Parameters.AddWithValue("@ProteinNot", $"{result.ProteinNot}");
+        //            cmd.Parameters.AddWithValue("@Fat", $"{result.Fat}");
+        //            cmd.Parameters.AddWithValue("@FatGT", $"{result.FatGT}");
+        //            cmd.Parameters.AddWithValue("@FatGTE", $"{result.FatGTE}");
+        //            cmd.Parameters.AddWithValue("@FatLT", $"{result.FatLT}");
+        //            cmd.Parameters.AddWithValue("@FatLTE", $"{result.FatLTE}");
+        //            cmd.Parameters.AddWithValue("@FatNot", $"{result.FatNot}");
+        //            cmd.Parameters.AddWithValue("@Sodium", $"{result.Sodium}");
+        //            cmd.Parameters.AddWithValue("@SodiumGT", $"{result.SodiumGT}");
+        //            cmd.Parameters.AddWithValue("@SodiumGTE", $"{result.SodiumGTE}");
+        //            cmd.Parameters.AddWithValue("@SodiumLT", $"{result.SodiumLT}");
+        //            cmd.Parameters.AddWithValue("@SodiumLTE", $"{result.SodiumLTE}");
+        //            cmd.Parameters.AddWithValue("@SodiumNot", $"{result.SodiumNot}");
+        //            cmd.Parameters.AddWithValue("@Sugars", $"{result.Sugars}");
+        //            cmd.Parameters.AddWithValue("@SugarsGT", $"{result.SugarsGT}");
+        //            cmd.Parameters.AddWithValue("@SugarsGTE", $"{result.SugarsGTE}");
+        //            cmd.Parameters.AddWithValue("@SugarsLT", $"{result.SugarsLT}");
+        //            cmd.Parameters.AddWithValue("@SugarsLTE", $"{result.SugarsLTE}");
+        //            cmd.Parameters.AddWithValue("@SugarsNot", $"{result.SugarsNot}");
+        //            cmd.Parameters.AddWithValue("@Potass", $"{result.Potass}");
+        //            cmd.Parameters.AddWithValue("@PotassGT", $"{result.PotassGT}");
+        //            cmd.Parameters.AddWithValue("@PotassGTE", $"{result.PotassGTE}");
+        //            cmd.Parameters.AddWithValue("@PotassLT", $"{result.PotassLT}");
+        //            cmd.Parameters.AddWithValue("@PotassLTE", $"{result.PotassLTE}");
+        //            cmd.Parameters.AddWithValue("@PotassNot", $"{result.PotassNot}");
+        //            cmd.Parameters.AddWithValue("@Vitamins", $"{result.Vitamins}");
+        //            cmd.Parameters.AddWithValue("@VitaminsGT", $"{result.VitaminsGT}");
+        //            cmd.Parameters.AddWithValue("@VitaminsGTE", $"{result.VitaminsGTE}");
+        //            cmd.Parameters.AddWithValue("@VitaminsLT", $"{result.VitaminsLT}");
+        //            cmd.Parameters.AddWithValue("@VitaminsLTE", $"{result.VitaminsLTE}");
+        //            cmd.Parameters.AddWithValue("@VitaminsNot", $"{result.VitaminsNot}");
+        //            cmd.Parameters.AddWithValue("@Shelf", $"{result.Shelf}");
+        //            cmd.Parameters.AddWithValue("@ShelfGT", $"{result.ShelfGT}");
+        //            cmd.Parameters.AddWithValue("@ShelfGTE", $"{result.ShelfGTE}");
+        //            cmd.Parameters.AddWithValue("@ShelfLT", $"{result.ShelfLT}");
+        //            cmd.Parameters.AddWithValue("@ShelfLTE", $"{result.ShelfLTE}");
+        //            cmd.Parameters.AddWithValue("@ShelfNot", $"{result.ShelfNot}");
+        //            cmd.Parameters.AddWithValue("@Weight", $"{result.Weight}");
+        //            cmd.Parameters.AddWithValue("@WeightGT", $"{result.WeightGT}");
+        //            cmd.Parameters.AddWithValue("@WeightGTE", $"{result.WeightGTE}");
+        //            cmd.Parameters.AddWithValue("@WeightLT", $"{result.WeightLT}");
+        //            cmd.Parameters.AddWithValue("@WeightLTE", $"{result.WeightLTE}");
+        //            cmd.Parameters.AddWithValue("@WeightNot", $"{result.WeightNot}");
+        //            cmd.Parameters.AddWithValue("@Cups", $"{result.Cups}");
+        //            cmd.Parameters.AddWithValue("@CupsGT", $"{result.CupsGT}");
+        //            cmd.Parameters.AddWithValue("@CupsGTE", $"{result.CupsGTE}");
+        //            cmd.Parameters.AddWithValue("@CupsLT", $"{result.CupsLT}");
+        //            cmd.Parameters.AddWithValue("@CupsLTE", $"{result.CupsLTE}");
+        //            cmd.Parameters.AddWithValue("@CupsNot", $"{result.CupsNot}");
+        //            cmd.Parameters.AddWithValue("@Rating", $"{result.Rating}");
+        //            cmd.Parameters.AddWithValue("@RatingGT", $"{result.RatingGT}");
+        //            cmd.Parameters.AddWithValue("@RatingGTE", $"{result.RatingGTE}");
+        //            cmd.Parameters.AddWithValue("@RatingLT", $"{result.RatingLT}");
+        //            cmd.Parameters.AddWithValue("@RatingLTE", $"{result.RatingLTE}");
+        //            cmd.Parameters.AddWithValue("@RatingNot", $"{result.RatingNot}");
+        //            cmd.Parameters.AddWithValue("@Fiber", $"{result.Fiber}");
+        //            cmd.Parameters.AddWithValue("@FiberGT", $"{result.FiberGT}");
+        //            cmd.Parameters.AddWithValue("@FiberGTE", $"{result.FiberGTE}");
+        //            cmd.Parameters.AddWithValue("@FiberLT", $"{result.FiberLT}");
+        //            cmd.Parameters.AddWithValue("@FiberLTE", $"{result.FiberLTE}");
+        //            cmd.Parameters.AddWithValue("@FiberNot", $"{result.FiberNot}");
+        //            cmd.Parameters.AddWithValue("@Carbo", $"{result.Carbo}");
+        //            cmd.Parameters.AddWithValue("@CarboGT", $"{result.CarboGT}");
+        //            cmd.Parameters.AddWithValue("@CarboGTE", $"{result.CarboGTE}");
+        //            cmd.Parameters.AddWithValue("@CarboLT", $"{result.CarboLT}");
+        //            cmd.Parameters.AddWithValue("@CarboLTE", $"{result.CarboLTE}");
+        //            cmd.Parameters.AddWithValue("@CarboNot", $"{result.CarboNot}");
+        //            SqlDataReader reader = cmd.ExecuteReader();
+        //            while (reader.Read())
+        //            {
+        //                Cereal cer = ReadNextElement(reader);
+        //                cList.Add(cer);
+        //            }
+        //            reader.Close();
+        //        }
+        //    }
 
-            return cList;
+        //    return cList;
 
-        }
+        //}
 
         private const String INSERT = "insert into Cereal2(Name, Mfr, Type, Calories, Protein, Fat, Sodium, Fiber, Carbo, Sugars, Potass, Vitamins, Shelf, Weight, Cups, Rating) Values(@Name, @Mfr, @Type, @Calories, @Protein, @Fat, @Sodium, @Fiber, @Carbo, @Sugars, @Potass, @Vitamins, @Shelf, @Weight, @Cups, @Rating)";
 
