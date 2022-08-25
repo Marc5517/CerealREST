@@ -78,10 +78,18 @@ namespace CerealREST.Controllers
 
         [HttpGet]
         [Route("Category/Result")]
-        public IEnumerable<Cereal> GetByCategory(int? caloriesLT, string? type, int? fatGT)
+        public IActionResult GetByCategory(int? caloriesLT, string? type, int? fatGT)
         {
             ManageCereal mc = new ManageCereal();
-            return mc.GetBySort(caloriesLT, type, fatGT);
+            try
+            {
+                return Ok(mc.GetBySort(caloriesLT, type, fatGT));
+            }
+            catch (KeyNotFoundException knfe)
+            {
+                return NotFound(knfe.Message);
+            }
+            
         }
 
         //[HttpGet]
@@ -214,8 +222,9 @@ namespace CerealREST.Controllers
         }
 
         // PUT api/<CerealsController>/5
-        [HttpPut("{id}")]
+        [HttpPut]
         [Authorize]
+        [Route("{id}")]
         public IActionResult Update(int id, [FromBody] Cereal c)
         {
             ManageCereal mc = new ManageCereal();

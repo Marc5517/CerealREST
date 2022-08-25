@@ -669,8 +669,14 @@ namespace CerealREST.DBUtil
                     reader.Close();
                 }
             }
-
-            return cList;
+            if (cList.Count == 0)
+            {
+                throw new KeyNotFoundException("No list came out. Value might be wrong.");
+            }
+            else
+            {
+                return cList;
+            }
 
         }
 
